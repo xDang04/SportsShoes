@@ -35,15 +35,15 @@ if (isset($_POST['submit'])) {
           $message = urlencode('
           <div style="margin-left:30px;width:420px;padding:40px;border:1px #ccc solid;border-radius:10px;color:#000;background-image: linear-gradient(-45deg, #cfcfcf, transparent);">
                   <h1 style="font-weight:400;text-align:center">Hoá đơn thanh toán</h1>
-                                          <div>🔵 <b style="padding-left:5px;color:#888a8d;margin-top:">Người mua : </b><b style="color:#478fcc;font-weight: 500;margin-top:-30px;margin-left:30px">' . $name . '</b>
-                                          <div>🔵 <b style="padding-left:5px;color:#888a8d;margin-top:">Địa chỉ nhận hàng : </b><b style="color:#478fcc;font-weight: 500;margin-top:-30px;margin-left:30px">' . $location . '</b>
+                                          <div>🔵 <b style="padding-left:5px;color:#888a8d;margin-top:">Buyer : </b><b style="color:#478fcc;font-weight: 500;margin-top:-30px;margin-left:30px">' . $name . '</b>
+                                          <div>🔵 <b style="padding-left:5px;color:#888a8d;margin-top:">Receipt address : </b><b style="color:#478fcc;font-weight: 500;margin-top:-30px;margin-left:30px">' . $location . '</b>
                                           <div>
                                              <table border="1">
                                                   <thead>
                                                   <tr>
-                                                       <th>Sản phẩm</th>
-                                                       <th>Số lượng</th>
-                                                       <th>Giá</th>
+                                                       <th>Product</th>
+                                                       <th>Quantities</th>
+                                                       <th>Price</th>
                                                   </tr>
                                                   </thead>
                                                   <tbody>
@@ -100,37 +100,37 @@ if (isset($_POST['submit'])) {
 <div id="main flex gap-10 relative">
      <div class="ml-10">
           <form action="" method="post">
-               <label for="diachi" class="pl-[10px]"> Địa chỉ nhận hàng </label>
+               <label for="diachi" class="pl-[10px]"> Receipt address </label>
                <div class="form_wrapper rounded-md">
-                    <input type="text" class="pl-3 my-2" name="location" id="diachi" placeholder="Địa chỉ nhận hàng"
+                    <input type="text" class="pl-3 my-2" name="location" id="diachi" placeholder="Receipt address"
                          required pattern=".{5,}" title="Vui lòng nhập ít nhất 5 ký tự" oninput="setCustomValidity('')"
                          onchange="this.value = this.value.trim()">
                </div>
 
-               <label for="phonei" class="pl-[10px]"> Số điện thoại nhận hàng </label>
+               <label for="phonei" class="pl-[10px]"> Receiving Phone Number </label>
                <div class="form_wrapper rounded-md">
-                    <input type="tel" name="phone" class="pl-3 my-2" id="phonei" placeholder="Số điện thoại" required
+                    <input type="tel" name="phone" class="pl-3 my-2" id="phonei" placeholder="Receiving Phone Number" required
                          pattern=".{5,}" title="Vui lòng nhập ít nhất 5 ký tự" oninput="setCustomValidity('')"
                          onchange="this.value = this.value.trim()">
                </div>
 
-               <label for="namei" class="pl-[10px]"> Tên người nhận hàng </label>
+               <label for="namei" class="pl-[10px]"> Receiver's name </label>
                <div class="form_wrapper rounded-md">
-                    <input type="text" name="name" class="pl-3 my-2" id="namei" placeholder="Tên người nhận" required
+                    <input type="text" name="name" class="pl-3 my-2" id="namei" placeholder="Receiver's name" required
                          pattern=".{5,}" title="Vui lòng nhập ít nhất 5 ký tự" oninput="setCustomValidity('')"
                          onchange="this.value = this.value.trim()">
                </div>
 
-               <label for="emaili" class="pl-[10px]"> Xác nhận email đăng ký </label>
+               <label for="emaili" class="pl-[10px]"> Confirm registration email </label>
                <div class="form_wrapper rounded-md">
-                    <input type="email" name="email" class="pl-3 my-2" id="emaili" placeholder="Xác nhận email đăng ký"
+                    <input type="email" name="email" class="pl-3 my-2" id="emaili" placeholder="Confirm registration email"
                          required pattern=".{5,}" title="Vui lòng nhập ít nhất 5 ký tự" oninput="setCustomValidity('')"
                          onchange="this.value = this.value.trim()">
                </div>
 
                <button
                     class="bg-green-500 border border-green-600 rounded-md text-white text-xl font-bold p-4 w-1/2 ml-3 mt-4"
-                    type="submit" name="submit">Xác nhận thanh toán</button>
+                    type="submit" name="submit">Confirm payment</button>
           </form>
 
      </div>

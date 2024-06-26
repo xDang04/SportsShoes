@@ -58,7 +58,7 @@ if (is_array($Product)) {
                 }
                 ?>
             </select>
-            <input type="submit" name="btn_update" value="Cập Nhật " class="bg-[#ff523b] my-10 py-2 px-8 hover:bg-[#BAAACE] hover:text-white rounded-lg">
+            <input type="submit" name="btn_update" value="Update" class="bg-[#ff523b] my-10 py-2 px-8 hover:bg-[#BAAACE] hover:text-white rounded-lg">
         </form>
     </div>
 </div>

@@ -146,7 +146,7 @@
     foreach ($ListCategory as $ListCate) {
         extract($ListCate);
         $image = $img_path . $ListCate['image'];
-        $linkCategory = "index.php?act=san_pham&iddm=" . $id;
+        $linkCategory = "index.php?act=product&id_category=" . $id;
         echo '
                         <div class="">
                         <a href="' . $linkCategory . '"><img style="width:282px ; height:300px" src="' . $image . '"></a>
@@ -181,7 +181,7 @@
             style="font-family: 'Times New Roman', Times, serif;">Limited</span>
     </div>
     <div class="flex ">
-        <form class="border border-gray-500 p-2 w-[225px] rounded-md relative" action="index.php?act=san_pham"
+        <form class="border border-gray-500 p-2 w-[225px] rounded-md relative" action="index.php?act=product"
             method="post">
             <input type="text" class="pl-2 border-0" placeholder="Search Product" name="kw">
             <button type="submit" name="Search" class="absolute right-[10px]">

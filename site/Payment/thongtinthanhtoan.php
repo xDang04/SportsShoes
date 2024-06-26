@@ -5,10 +5,10 @@
 	if (isset($_SESSION['id_khachhang'])) {
 		?>
 		<div class="arrow-steps clearfix">
-			<div class="step done"> <span> <a href="index.php?quanly=giohang">Giỏ hàng</a></span> </div>
-			<div class="step done"> <span><a href="index.php?quanly=vanchuyen">Vận chuyển</a></span> </div>
-			<div class="step current"> <span><a href="index.php?quanly=thongtinthanhtoan">Thanh toán</a><span> </div>
-			<div class="step"> <span><a href="index.php?quanly=donhangdadat">Lịch sử đơn hàng</a><span> </div>
+			<div class="step done"> <span> <a href="index.php?quanly=giohang">Cart</a></span> </div>
+			<div class="step done"> <span><a href="index.php?quanly=vanchuyen">Shipping</a></span> </div>
+			<div class="step current"> <span><a href="index.php?quanly=thongtinthanhtoan">Pay</a><span> </div>
+			<div class="step"> <span><a href="index.php?quanly=donhangdadat">Order History</a><span> </div>
 		</div>
 		<?php
 	}
@@ -36,31 +36,31 @@
 			?>
 
 			<div class="col-md-8">
-				<h4>Thông tin vận chuyển và giỏ hàng</h4>
+				<h4>Transportation and cart information</h4>
 				<ul>
-					<li>Họ và tên vận chuyển : <b>
+					<li>They and the shipper. : <b>
 							<?php echo $name ?>
 						</b></li>
-					<li>Số điện thoại : <b>
+					<li>Phone : <b>
 							<?php echo $phone ?>
 						</b></li>
-					<li>Địa chỉ : <b>
+					<li>Address : <b>
 							<?php echo $address ?>
 						</b></li>
-					<li>Ghi chú : <b>
+					<li>Note : <b>
 							<?php echo $note ?>
 						</b></li>
 				</ul>
-				<h5>Giỏ hàng của bạn</h5>
+				<h5>My Cart</h5>
 				<table style="width:100%;text-align: center;border-collapse: collapse;" border="1">
 					<tr>
 						<th>Id</th>
-						<th>Mã sp</th>
-						<th>Tên sản phẩm</th>
-						<th>Hình ảnh</th>
-						<th>Số lượng</th>
-						<th>Giá sản phẩm</th>
-						<th>Thành tiền</th>
+						<th>Product Code</th>
+						<th>Product Name</th>
+						<th>Image</th>
+						<th>Quantities</th>
+						<th>Product price</th>
+						<th>Total</th>
 
 
 					</tr>

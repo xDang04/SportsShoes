@@ -15,7 +15,7 @@
                 <?php
                 foreach ($ListCategory as $ListCate) {
                     extract($ListCate);
-                    $linkCategory = "index.php?act=san_pham&iddm=" . $id;
+                    $linkCategory = "index.php?act=product&idcategory=" . $id;
                     echo '
                         <li class="my-1">
                         <a href="' . $linkCategory . '">' . $categories_name . '</a>
@@ -119,28 +119,28 @@
         <?php
         for ($i = 1; $i <= $_SESSION['total_page']; $i++) {
         ?>
-        <a href="index.php?act=san_pham&page=<?= $i ?>"
+        <a href="index.php?act=product&page=<?= $i ?>"
             class="border-gray-200 border-2 px-2 py-1 text-gray-600 <?= $_SESSION['page'] == $i ? 'product-page-active' : '' ?>"><?= $i ?></a>
         <?php
         }
         ?>
 
     </div>
-    <span class="text-gray-600">Đang hiển thị <?= $san_pham ?> kết quả</span>
+    <span class="text-gray-600">Showing <?= $product ?> Result</span>
 </div>
 <div class="text-center bg-gray-100 py-10 mt-10 mb-20" style="font-family: 'Courier New', Courier, monospace" ;>
     <h2 class="font-bold text-3xl">
         Nhận thông tin giảm giá
     </h2>
     <p class=" mt-5 mb-6">
-        Đăng ký đặt hàng Royal để nhận ưu đãi hấp dẫn, đăng ký nhận nhiều thông tin giảm giá hấp dẫn
+    Sign up for Royal to receive attractive offers, sign up for attractive discount information
     </p>
     <div class=" font-bold my-5">
         <button class="border-2 text-black border-black px-3 py-3">
-            Tìm hiểu thêm
+            Show more
         </button>
         <button class="border-2 text-black border-black px-5 py-3 bg-white-900">
-            Đặt mua
+        Order
         </button>
     </div>
 </div>

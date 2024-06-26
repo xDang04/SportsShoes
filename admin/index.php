@@ -76,7 +76,7 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                         $message = "Image update failed !";
                     }
                     Set_Category($id, $categories_name, $image);
-                    $message = "Cập nhật thành công";
+                    $message = "Update successfully";
                 }
                 $ListCategory = Get_All_Category();
                 include "Category/list-cate.php";
@@ -119,11 +119,7 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                 include "Product/listsp.php";
                 break;
 
-            /* case "danh_sach_sp_trang":
-            $danh_sach_sp = lay_san_pham_theo_trang('id', 5);
-            include "san_pham/listsp.php";
-            break;
-*/
+        
             case "Delete_product":
                 if (isset($_GET['id']) && ($_GET['id']) > 0) {
                     $Product = Delete_product($_GET['id']);

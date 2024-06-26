@@ -67,9 +67,9 @@ if (isset($_SESSION['cart']) && ($_SESSION['cart'] != [])) {
                     <td style="background-color: #CCC;"> <a href="index.php?act=delcart">Delete All</a></td>
                 </tr>
             </table>
-            <p class="flex justify-between"><a href="index.php?act=san_pham" class=" pt-10 font-bold ">Continue ordering?</a>
+            <p class="flex justify-between"><a href="index.php?act=product" class=" pt-10 font-bold ">Continue ordering?</a>
                 <input type="submit" class="mt-10 font-bold hover:bg-gray-300 rounded-lg mb-10" name='up'
-                    value="Cập nhật lại giỏ hàng">
+                    value="Updates cart">
             </p>
         </form>
         <div class="items-center text-stast rounded-lg   font-bold mt-10 ">
