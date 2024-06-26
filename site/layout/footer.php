@@ -13,7 +13,7 @@
                 . !</p>
             <div class="mx-8 my-4">
                 <input type="text" class="border-2 py-2 px-14 rounded-lg" required placeholder="Your email">
-                <button class="border-2 py-2 px-8 rounded-lg">Đặt mua</button>
+                <button class="border-2 py-2 px-8 rounded-lg">Order</button>
             </div>
         </div>
         <div class="col-span-1 mx-10">

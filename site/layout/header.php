@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sports shose</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
@@ -616,7 +616,7 @@ body {
 
             <div class="mx-10 my-10 text-center">
                 <div class="head flex items-center justify-between  shadow-lg shadow-cyan-500/50">
-                    <h3 class="text-[18px] font-semibold pl-8">TÚI MUA SẮM CỦA BẠN</h3>
+                <h3 class="text-[18px] font-semibold pl-8">Your shopping bag</h3>
                     <button
                         class="hover:bg-[#F8FAFC] hover:shadow-lg hover:shadow-cyan-500/50 hover:text-black text-xl  border-2 py-3 ml-10 px-6"
                         id="closed">X</button>
@@ -664,7 +664,7 @@ body {
             </div>
             <hr width=" mx-auto">
             <div class="flex justify-between my-10 px-5">
-                <h3 class="text-xl">TỔNG CỘNG</h3>
+                <h3 class="text-xl">Total</h3>
                 <div class="subtotal px-5">
                     <span>$ <span id="subtotal"><?= number_format($tong, 0, ',', '.'); ?></span></span>
                 </div>
@@ -672,8 +672,7 @@ body {
 
             <div
                 class="hover:bg-[#EAE8E4] hover:text-black  bg-black text-[#FFFFFF] py-3 text-center  text-[16px] w-full">
-                <a href="index.php?act=viewcart" class="">Thanh
-                    toán ngay</a>
+                <a href="index.php?act=viewcart" class="">Pay Now</a>
             </div>
 
         </div>

@@ -59,9 +59,7 @@ function Get_All_Product_Guest()
 // Truy vấn tất cả hàng hóa
 function Get_All_Product($kw = "", $id_categories)
 {
-    // $sql = "SELECT * FROM product ORDER BY id DESC";
-    // $ds_san_pham = pdo_query($sql);
-    // return $ds_san_pham;
+
     $sql = "select * from product where 1 ";
     if ($kw != "") {
         $sql .= " and product_name like '%" . $kw . "%'";
