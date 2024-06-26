@@ -4,7 +4,7 @@
         <div class="justify-between mx-40 flex items-center">
             <h1 class="text-[20px] font-semibold text-sky-600 my-5">Danh sách Cates</h1>
 
-            <a href="index.php?act=them_dm" class=" bg-yellow-300 text-center  py-2 px-2 rounded-md hover:bg-[#BAAACE] hover:text-white mx-4 font-semibold text-[#551AA9] my-5">ADD
+            <a href="index.php?act=Add_cate" class=" bg-yellow-300 text-center  py-2 px-2 rounded-md hover:bg-[#BAAACE] hover:text-white mx-4 font-semibold text-[#551AA9] my-5">ADD
                 Cate</a>
         </div>
 
@@ -19,10 +19,10 @@
             </tr>
 
             <?php
-            foreach ($ds_danh_muc as $dsdm) {
-                extract($dsdm);
-                $sua_dm = "index.php?act=sua_dm&id=" . $id;
-                $xoa_dm = "index.php?act=xoa_dm&id=" . $id;
+            foreach ($ListCategory as $ListCate) {
+                extract($ListCate);
+                $View_Update_Cate = "index.php?act=View_Update_Cate&id=" . $id;
+                $Delete_cate = "index.php?act=Delete_cate&id=" . $id;
                 $image = "../upload/" . $image;
             ?>
 
@@ -38,8 +38,8 @@
                     </td>
 
                     <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
-                        <a class="py-1 px-4 bg-[#1E74A4] hover:bg-[#BAAACE] hover:text-white text-white rounded-md mx-2" href="<?= $sua_dm ?>">Sửa</a>
-                        <a onclick="return confirm('Bạn có muốn xóa không')" class="text-white hover:bg-[#BAAACE] hover:text-white bg-[#AC3131] py-1 px-4 rounded-md mx-2" href="<?= $xoa_dm ?>">Xóa</a>
+                        <a class="py-1 px-4 bg-[#1E74A4] hover:bg-[#BAAACE] hover:text-white text-white rounded-md mx-2" href="<?= $View_Update_Cate ?>">Sửa</a>
+                        <a onclick="return confirm('Bạn có muốn xóa không')" class="text-white hover:bg-[#BAAACE] hover:text-white bg-[#AC3131] py-1 px-4 rounded-md mx-2" href="<?= $Delete_cate ?>">Xóa</a>
                     </td>
                 </tr>
             <?php

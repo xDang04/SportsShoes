@@ -1,6 +1,6 @@
 <?php
-if (is_array($san_pham)) {
-    extract($san_pham);
+if (is_array($Product)) {
+    extract($Product);
     $image2 = "../upload/" . $image2;
 }
 ?>
@@ -24,11 +24,11 @@ if (is_array($san_pham)) {
             </div>
 
         </div>
-        <form action="index.php?act=cap_nhat_sp" method="POST" enctype="multipart/form-data">
+        <form action="index.php?act=Update_Product" method="POST" enctype="multipart/form-data">
 
             <input type="hidden" value="<?= $id ?>" name="id" class="px-10 py-2 rounded-md">
             <input type="hidden" value="<?= $image2 ?>" name="old_image2" class="px-10 py-2 rounded-md">
-            <p class="text-[#551AA9] text-[20px] my-4" for="">Tên Sản Phẩm</p><input required type="text" value="<?= $product_name ?>" name="product_name" placeholder="LV ...." class="border w-full px-10 rounded-lg py-2 mt-2">
+            <p class="text-[#551AA9] text-[20px] my-4" for="">Product Name</p><input required type="text" value="<?= $product_name ?>" name="product_name" placeholder="LV ...." class="border w-full px-10 rounded-lg py-2 mt-2">
 
             <p class="text-[#551AA9] text-[20px] my-4" for="">PRICE</p><input required type="text" value="<?= $product_price ?>" name="product_price" placeholder="999$ ...." class="border w-full px-10 rounded-lg py-2 mt-2">
 
@@ -48,8 +48,8 @@ if (is_array($san_pham)) {
             <p class="text-[#551AA9] text-[20px] my-4" for="">Cate_Id</p>
             <select name="id_categories" id="" class="w-full border rounded-lg px-10 py-2">
                 <?php
-                foreach ($ds_danh_muc as $dsdm) {
-                    extract($dsdm);
+                foreach ($ListCategory as $ListCate) {
+                    extract($ListCate);
                 ?>
                     <option value="<?= $id  ?>">
                         <?= $categories_name ?>

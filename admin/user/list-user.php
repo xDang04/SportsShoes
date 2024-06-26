@@ -2,9 +2,9 @@
     <h1 class="text-center text-cyan-500 py-6  text-4xl " style="font-family: 'Courier New', Courier, monospace">DANH SÁCH NGƯỜI DÙNG</h1>
     <div class="ad-r mx-auto">
         <div class="justify-between mx-auto grid grid-cols-2 items-center">
-            <h1 class="text-[20px] font-semibold text-sky-600 my-5">Danh sách user</h1>
+            <h1 class="text-[20px] font-semibold text-sky-600 my-5">List user</h1>
 
-            <a href="index.php?act=them_tai_khoan" class=" bg-yellow-300 text-center  py-2 px-2 rounded-md hover:bg-[#BAAACE] hover:text-white mx-4 font-semibold text-[#551AA9] my-5">ADD
+            <a href="index.php?act=InsertAccount" class=" bg-yellow-300 text-center  py-2 px-2 rounded-md hover:bg-[#BAAACE] hover:text-white mx-4 font-semibold text-[#551AA9] my-5">ADD
                 User</a>
         </div>
         <?php if (isset($_GET['msg'])) : ?>
@@ -17,11 +17,11 @@
                 <th class="border-2 border-cyan-500   py-2">ID</th>
                 <th class="border-2 border-cyan-500  py-2">Username</th>
                 <th class="border-2 border-cyan-500  py-2">Password</th>
-                <th class="border-2 border-cyan-500  py-2">Họ và tên</th>
-                <th class="border-2 border-cyan-500  py-2">SDT</th>
-                <th class="border-2 border-cyan-500  py-2">Địa chỉ</th>
+                <th class="border-2 border-cyan-500  py-2">FullName</th>
+                <th class="border-2 border-cyan-500  py-2">Phone</th>
+                <th class="border-2 border-cyan-500  py-2">Address</th>
                 <th class="border-2 border-cyan-500  py-2">Email</th>
-                <th class="border-2 border-cyan-500  py-2">Vai trò</th>
+                <th class="border-2 border-cyan-500  py-2">Role</th>
                 <th class="border-2 border-cyan-500  py-2">
                     Action
                 </th>
@@ -31,12 +31,12 @@
             foreach ($users as $user) {
                 extract($user);
 
-                $sua_us = "index.php?act=sua_us&id=" . $id;
-                $xoa_us = "index.php?act=xoa_us&id=" . $id;
+                $View_Update_us = "index.php?act=View_Update_us&id=" . $id;
+                $Delete_us = "index.php?act=Delete_us&id=" . $id;
                 if ($role == 0) {
-                    $role = 'Khách hàng';
+                    $role = 'User';
                 } else {
-                    $role = 'Quản trị viên';
+                    $role = 'Admin';
                 }
             ?>
                 <tr class="text-[#551AA9] ">
@@ -66,8 +66,8 @@
                     </td>
 
                     <td class="border-2 border-cyan-500 py-4 px-2 text-center">
-                        <a class=" px-4 bg-[#1E74A4] hover:bg-[#BAAACE] hover:text-white text-white rounded-md mx-2" href="<?= $sua_us ?>">Sửa</a>
-                        <a onclick="return confirm('Bạn có muốn xóa không')" class="text-white hover:bg-[#BAAACE] hover:text-white bg-[#AC3131]  px-4 rounded-md mx-2" href="<?= $xoa_us ?>">Xóa</a>
+                        <a class=" px-4 bg-[#1E74A4] hover:bg-[#BAAACE] hover:text-white text-white rounded-md mx-2" href="<?= $View_Update_us ?>">Sửa</a>
+                        <a onclick="return confirm('Bạn có muốn xóa không')" class="text-white hover:bg-[#BAAACE] hover:text-white bg-[#AC3131]  px-4 rounded-md mx-2" href="<?= $Delete_us ?>">Xóa</a>
                     </td>
                 </tr>
             <?php

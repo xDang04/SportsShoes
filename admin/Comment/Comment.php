@@ -3,15 +3,15 @@
             <div class="home mt-5   py-10 mr-8 bg-[#F4F6FA] h-auto rounded">
                 <div class="">
                     <h1 class="text-center text-cyan-500 pb-10  text-4xl "
-                        style="font-family: 'Courier New', Courier, monospace">TỔNG HỢP BÌNH LUẬN</h1>
+                        style="font-family: 'Courier New', Courier, monospace">Summarize comments</h1>
                     <table class="table border-2 border-cyan-500 shadow-lg shadow-cyan-500/50 mx-auto">
                         <tr class="border-2 border-cyan-500  text-[#551AA9] ">
-                            <th class="border-2 border-cyan-500 px-4 py-2">Tên KH</th>
-                            <th class="border-2 border-cyan-500 px-10 py-2">Hàng hóa</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Số bình luận</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Ngày bình luận</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Đánh giá</th>
-                            <th class="border-2 border-cyan-500 px-[180px] py-2">Nội Dung</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Name User</th>
+                            <th class="border-2 border-cyan-500 px-10 py-2">Shipment</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Number of comments</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">DateComment</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Review</th>
+                            <th class="border-2 border-cyan-500 px-[180px] py-2">Content</th>
 
 
                         </tr>

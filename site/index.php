@@ -4,7 +4,7 @@ session_start();
 ob_start();
 if (!isset($_SESSION['cart']))
   $_SESSION['cart'] = array();
-if (!isset($_SESSION['dangky']) && isset($_GET['act']))
+if (!isset($_SESSION['register']) && isset($_GET['act']))
   echo "<script>window.location.href='./index.php'</script>"; // ko đăng nhập chỉ xem được trang chủ
 // echo "<script>alert('".$_SESSION['id_user']."')</script>";
 
@@ -13,12 +13,12 @@ include "../guest/category.php";
 include "../guest/order.php";
 include "../guest/product.php";
 include "../guest/account.php";
-include "../guest/binh_luan.php";
+include "../guest/comment.php";
 include "../site/layout/header.php";
-$san_pham = count(lay_tat_ca_san_pham_guest());
-$dsdm = lay_tat_ca_danh_muc();
-$sptop10 = lay_san_pham_noi_bat();
-$sugget = lay_san_pham_goi_y();
+$Product = count(Get_All_Product_Guest());
+$ListCategory = Get_All_Category();
+$Top10Product = Get_Product_Hilight();
+$Sugget = Get_Product_Suggest();
 // Kiểm tra biến chuyển trang ?act
 if (isset($_GET['act'])) {
   // Nếu tồn tại giá trị biến ?act thì gán $_GET['act'] cho biến $act
@@ -27,27 +27,27 @@ if (isset($_GET['act'])) {
   // Kiểm tra các trường hợp chuyển trang
   switch ($act) {
     // Trang sản phẩm
-    case "san_pham":
+    case "product":
       if (isset($_POST['kw']) && ($_POST['kw'] != "")) {
         $kw = $_POST['kw'];
       } else {
         $kw = "";
       }
-      if (isset($_GET['iddm']) && ($_GET['iddm'] > 0)) {
-        $iddm = $_GET['iddm'];
+      if (isset($_GET['id_categories']) && ($_GET['id_categories'] > 0)) {
+        $id_categories = $_GET['id_categories'];
       } else {
-        $iddm = 0;
+        $id_categories = 0;
       }
       if (!isset($_POST['kw'])) {
         header("location:index.php");
       }
-      $ds_san_pham = lay_tat_ca_san_pham($kw, $iddm);
-      $tendm = load_ten_dm($iddm);
-      $danh_sach_sp_moi = lay_san_pham_theo_trang('id', 9);
+      $ListProduct = Get_All_Product($kw, $id_categories);
+      $CategoryName = Load_Category_Name($id_categories);
+      $ListProductNew = Get_Product_By_Page('id', 9);
       //  $ds_san_pham = lay_san_pham_theo_kw($kw);
-      include "san-pham/products.php";
+      include "Product/products.php";
       break;
-    case 'signup':
+    case 'register':
       if (isset($_POST['confirm'])) {
         $username = $_POST['username'];
         $fullname = $_POST['fullname'];
@@ -57,10 +57,10 @@ if (isset($_GET['act'])) {
         $address = $_POST['address'];
         $role = 1;
         $_SESSION['role'] = $role;
-        $sql_dangky = pdo_execute("INSERT INTO `user`( `user_name`, `full_name`, `email`, `phone`, `address`, `role`, `password`) 
+        $sql_register = pdo_execute("INSERT INTO `user`( `user_name`, `full_name`, `email`, `phone`, `address`, `role`, `password`) 
         VALUES ('$username','$fullname','$email','$phone','$address','$role','$password')");
         echo '<p style="color:green">Bạn đã đăng ký thành công</p>';
-        $_SESSION['dangky'] = $fullname;
+        $_SESSION['register'] = $fullname;
         $_SESSION['email'] = $email;
         $_SESSION['id_user'] = search_id();
         header('Location:index.php?act=home');
@@ -72,17 +72,17 @@ if (isset($_GET['act'])) {
         $pass = $_POST['password'];
         $check_user = check_user($user, $pass);
         if (is_array($check_user)) {
-          $_SESSION['dangky'] = $check_user['full_name'];
+          $_SESSION['register'] = $check_user['full_name'];
           $_SESSION['role'] = $check_user['role'];
           $_SESSION['id_user'] = $check_user['id'];
           if ($check_user['role'] == 1) {
             header('Location: ../admin/index.php');
           } else {
-            // $thongbao = "Bạn đã đăng nhập thành công!";
+            // $message = "Bạn đã đăng nhập thành công!";
             header('Location: index.php');
           }
         } else {
-          echo 'Sai tên tài khoản hoặc mật khẩu';
+          echo 'Wrong account name or password';
         }
       }
       break;
@@ -93,12 +93,12 @@ if (isset($_GET['act'])) {
       }
       break;
     case 'addtocart':
-      $_SESSION['thongbao'] = "";
+      $_SESSION['message'] = "";
       if (!isset($_SESSION['cart']))
         $_SESSION['cart'] = array();
       if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
         if ((!isset($_POST['colors'])) || (!isset($_POST['size']))) {
-          $_SESSION['thongbao'] = "Vui lòng chọn màu và size";
+          $_SESSION['message'] = "Please select color and size";
           header('location: index.php?act=productdetail&id=' . $_POST['id'] . '');
           break;
         }
@@ -145,11 +145,11 @@ if (isset($_GET['act'])) {
     case 'viewcart':
       include "cart/viewcart.php";
       break;
-    case "gioi_thieu":
-      include "layout/gioithieu.php";
+    case "introduction":
+      include "layout/Introduction.php";
       break;
-    case "lien_he":
-      include "layout/lienhe.php";
+    case "contact":
+      include "layout/Contact.php";
       break;
     case "productdetail":
       $pro = [];
@@ -158,45 +158,45 @@ if (isset($_GET['act'])) {
         $pro = showspdetail($_GET['id']);
         if (isset($_POST['stars'])) {
           $comment = $_POST['comment'];
-          $ma_hang_hoa = $_GET['id'];
+          $Commodity_Code = $_GET['id'];
           // date_format(object, format): hàm trả về ngày(date) theo định dạng được chỉ định
           // *) object: tạo một(khởi tạo) đối tượng date bằng date_create()
           // *) format: chỉ định định dạng cho kiểu ngày
-          $ngay_bl = date_format(date_create(), 'Y-m-d'); // format theo năm - tháng - ngày
+          $DateComment = date_format(date_create(), 'Y-m-d'); // format theo năm - tháng - ngày
           $stars = $_POST['stars'];
           // Thêm bình luận 
-          them_binh_luan($comment, $_GET['id'], $_SESSION['id_user'], $ngay_bl, $stars);
-          $danh_sach_bl = lay_binh_luan_theo_hh($ma_hang_hoa);
+          Insert_Comment($comment, $_GET['id'], $_SESSION['id_user'], $DateComment, $stars);
+          $ListComment = Get_Comment_By_Shipment($Commodity_Code);
 
-          include "san-pham/productdetail.php";
+          include "Product/productdetail.php";
         }
 
 
         // Lấy danh sách bình luận theo hàng hóa với tham số $ma_hang_hoa ở trên
         else {
-          $ma_hang_hoa = $_GET['id'];
+          $Commodity_Code = $_GET['id'];
 
-          $danh_sach_bl = lay_binh_luan_theo_hh($ma_hang_hoa);
-          include "san-pham/productdetail.php";
+          $ListComment = Get_Comment_By_Shipment($Commodity_Code);
+          include "Product/productdetail.php";
         }
       }
       break;
     case 'camon':
-      include "thanhtoan/camon.php";
+      include "Payment/camon.php";
       break;
     case 'thanhtoan':
-      if (isset($_SESSION['dangky'])) {
+      if (isset($_SESSION['register'])) {
         $money = $_GET['tong'];
-        include "thanhtoan/xulythanhtoanmomo.php";
+        include "Payment/xulythanhtoanmomo.php";
       } else {
         echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">Vui lòng đăng nhập để thanh toán</h1>';
         include "cart/viewcart.php";
       }
       break;
     case 'thanhtoan_COD':
-      if (isset($_SESSION['dangky'])) {
+      if (isset($_SESSION['register'])) {
         $money = $_GET['tong'];
-        include "./thanhtoan/camon.php";
+        include "./Payment/camon.php";
       } else {
         echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">Vui lòng đăng nhập để thanh toán</h1>';
         include "cart/viewcart.php";
@@ -210,13 +210,13 @@ if (isset($_GET['act'])) {
       break;
     default:
       include "../site/layout/home.php";
-      $san_pham = count(lay_tat_ca_san_pham_guest());
+      $product = count(Get_All_Product_Guest());
       break;
   }
 } else {
   include "../site/layout/home.php";
-  $danh_sach_sp_noi_bat = lay_san_pham_noi_bat();
-  $danh_sach_sp_hot = lay_san_pham_dac_biet();
-  $san_pham = count(lay_tat_ca_san_pham_guest());
+  $ListProductHilight = Get_Product_Hilight();
+  $ListProductHot = Get_Product_Special();
+  $product = count(Get_All_Product_Guest());
 }
 include "../site/layout/footer.php";

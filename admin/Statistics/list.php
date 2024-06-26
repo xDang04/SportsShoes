@@ -4,10 +4,10 @@
     <div class="">
         <table class="table  shadow-2xl shadow-cyan-500/50 mx-auto border-2 border-cyan-500/50mx-auto my-5">
             <tr class="border-2 border-cyan-500/50  text-[#551AA9] ">
-                <th class="border-2 border-cyan-500/50  px-6 py-2">Mã danh mục</th>
-                <th class="border-2 border-cyan-500/50  px-6 py-2">Tên danh mục</th>
-                <th class="border-2 border-cyan-500/50  px-6 py-2">Số lượng đã bán</th>
-                <th class="border-2 border-cyan-500/50  px-6 py-2">Giá</th>
+                <th class="border-2 border-cyan-500/50  px-6 py-2">Category Code</th>
+                <th class="border-2 border-cyan-500/50  px-6 py-2">Category Name</th>
+                <th class="border-2 border-cyan-500/50  px-6 py-2">Sold quantities</th>
+                <th class="border-2 border-cyan-500/50  px-6 py-2">Price</th>
 
                 <!-- <th class="border-2 border-cyan-500/50  px-6 py-2">Giá cao nhất</th>
                 <th class="border-2 border-cyan-500/50  px-6 py-2">Giá thấp nhất</th>
@@ -18,27 +18,27 @@
                 // foreach ($ds_thong_ke_hh as $dstk) {
                     $r=mysqli_query($db_con,"SELECT * FROM categories");
                     while($row=mysqli_fetch_assoc($r)){
-                        $madm=$row['id'];
-                        $tendm=$row['categories_name'];
-                        if(mysqli_fetch_array(mysqli_query($db_con,"SELECT product_price FROM product WHERE id_categories='$madm'"))){
-                            $pro_id=mysqli_fetch_array(mysqli_query($db_con,"SELECT id FROM product WHERE id_categories='$madm'"))['id'];
-                        $maxprice=mysqli_fetch_array(mysqli_query($db_con,"SELECT product_price FROM product WHERE id_categories='$madm'"))['product_price'];
+                        $CategoryCode=$row['id'];
+                        $CategoryName=$row['categories_name'];
+                        if(mysqli_fetch_array(mysqli_query($db_con,"SELECT product_price FROM product WHERE id_categories='$CategoryCode'"))){
+                            $pro_id=mysqli_fetch_array(mysqli_query($db_con,"SELECT id FROM product WHERE id_categories='$CategoryCode'"))['id'];
+                        $maxprice=mysqli_fetch_array(mysqli_query($db_con,"SELECT product_price FROM product WHERE id_categories='$CategoryCode'"))['product_price'];
                         $minprice=$maxprice;
                         $avgprice=($minprice+$maxprice)/2;
                         // $countsp=mysqli_fetch_array(mysqli_query($db_con,"SELECT origin FROM product WHERE id_categories='$madm'"))['origin'];
                         $ch=mysqli_query($db_con,"SELECT * FROM `order` WHERE status=3 ");
-                        $countsp=0;
+                        $ProductCount=0;
                         while($c=mysqli_fetch_assoc($ch)){
                             $id_order=$c['code_cart'];
-                            $countsp+=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM detail_order WHERE id_product=$pro_id and id_order='$id_order'"))['count(*)'];
+                            $ProductCount+=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM detail_order WHERE id_product=$pro_id and id_order='$id_order'"))['count(*)'];
                         }
 
                         
             ?>
                     <tr class="border-2 border-cyan-500/50  px-6 py-2">
-                        <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= $madm ?></td>
-                        <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= $tendm ?></td>
-                        <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= $countsp ?></td>
+                        <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= $CategoryCode ?></td>
+                        <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= $CategoryName ?></td>
+                        <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= $ProductCount ?></td>
                         <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= number_format($maxprice) ?></td>
                         <!-- <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= number_format($minprice) ?></td> -->
                         <!-- <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= number_format($avgprice) ?></td> -->
@@ -56,10 +56,10 @@
         <center style="height:500px">
         <canvas id="myChart" style="width:400px"></canvas>
         <?php
-        $DonHangMoi=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM `order` WHERE status=0"))['count(*)'];
-        $DangXuLi=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM `order` WHERE status=1"))['count(*)'];
-        $DangGiaoHang=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM `order` WHERE status=2"))['count(*)'];
-        $DaGiaoHang=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM `order` WHERE status=3"))['count(*)'];
+        $NewOrder=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM `order` WHERE status=0"))['count(*)'];
+        $HeSOnTrial=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM `order` WHERE status=1"))['count(*)'];
+        $Delivery=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM `order` WHERE status=2"))['count(*)'];
+        $Delivered=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM `order` WHERE status=3"))['count(*)'];
         ?>
         </center>
 
@@ -69,10 +69,10 @@
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Đơn hàng mới', 'Đang xử li', 'Đang giao hàng', 'Đã giao hàng'],
+        labels: ['New Order', 'Hes on trial', 'Delivery', 'Delivered'],
         datasets: [{
-            label: 'Tổng đơn: ',
-            data: [<?=$DonHangMoi?>, <?=$DangXuLi?>, <?=$DangGiaoHang?>, <?=$DaGiaoHang?>],
+            label: 'Total: ',
+            data: [<?=$NewOrder?>, <?=$HeSOnTrial?>, <?=$Delivery?>, <?=$Delivered?>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

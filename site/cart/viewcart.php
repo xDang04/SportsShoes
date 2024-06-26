@@ -23,20 +23,20 @@ if (isset($_SESSION['cart']) && ($_SESSION['cart'] != [])) {
     ?>
     <!-- </div> -->
     <div class="items-center text-center text-[50px] font-bold ">
-        Giỏ hàng
+        Cart
     </div>
     <div class="logo max-w-[1080px] mx-auto grid justify-between items-center  my-5 mb-10">
         <form action="" method="post">
             <table class=" text-center mx-auto border-collapse border border-slate-300  ...">
                 <tr>
                     <th class=" px-11 border border-slate-300 ...">STT</th>
-                    <th class=" px-11 border border-slate-300 ...">Hình</th>
-                    <th class=" px-11 border border-slate-300 ...">Tên Sản Phẩm</th>
-                    <th class=" px-11 border border-slate-300 ...">Giá</th>
-                    <th class=" px-11 border border-slate-300 ...">Số lượng</th>
-                    <th class=" px-11 border border-slate-300 ...">Phân loại</th>
-                    <th class=" px-11 border border-slate-300 ...">Thành Tiền</th>
-                    <th class=" px-11 border border-slate-300 ...">Xóa</th>
+                    <th class=" px-11 border border-slate-300 ...">Image</th>
+                    <th class=" px-11 border border-slate-300 ...">Product Name</th>
+                    <th class=" px-11 border border-slate-300 ...">Price</th>
+                    <th class=" px-11 border border-slate-300 ...">Quantities</th>
+                    <th class=" px-11 border border-slate-300 ...">Classify</th>
+                    <th class=" px-11 border border-slate-300 ...">It's money.</th>
+                    <th class=" px-11 border border-slate-300 ...">Delete</th>
                 </tr>
                 <?php
                 $tong = 0;
@@ -60,27 +60,26 @@ if (isset($_SESSION['cart']) && ($_SESSION['cart'] != [])) {
                 }
                 ?>
                 <tr>
-                    <td colspan="6" class=" px-11 border border-slate-300 ...">Tổng đơn hàng</td>
+                    <td colspan="6" class=" px-11 border border-slate-300 ...">Total Order</td>
                     <td style="background-color: #CCC;">
                         <?= number_format($tong); ?>
                     </td>
-                    <td style="background-color: #CCC;"> <a href="index.php?act=delcart">Xóa tất cả</a></td>
+                    <td style="background-color: #CCC;"> <a href="index.php?act=delcart">Delete All</a></td>
                 </tr>
             </table>
-            <p class="flex justify-between"><a href="index.php?act=san_pham" class=" pt-10 font-bold ">Tiếp tục đặt
-                    hàng?</a>
+            <p class="flex justify-between"><a href="index.php?act=san_pham" class=" pt-10 font-bold ">Continue ordering?</a>
                 <input type="submit" class="mt-10 font-bold hover:bg-gray-300 rounded-lg mb-10" name='up'
                     value="Cập nhật lại giỏ hàng">
             </p>
         </form>
         <div class="items-center text-stast rounded-lg   font-bold mt-10 ">
             <a href="index.php?act=thanhtoan&tong=<?= $tong ?>" class=""> <button type="submit"
-                    class="text-black py-4 px-10 bg-gray-300 rounded-lg mb-10 hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">THANH
-                    TOÁN MOMO</button> </a>
+                    class="text-black py-4 px-10 bg-gray-300 rounded-lg mb-10 hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">
+                    MOMO FINANCIALS</button> </a>
             <br>
             <a href="index.php?act=thanhtoan_COD&tong=<?= $tong ?>&COD" class=""> <button type="submit"
-                    class="text-black py-4 px-10 bg-gray-300 rounded-lg mb-10  hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">THANH
-                    TOÁN KHI NHẬN HÀNG</button> </a>
+                    class="text-black py-4 px-10 bg-gray-300 rounded-lg mb-10  hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">
+                    REFERENCE ON REGISTRATION</button> </a>
         </div>
     </div>
     </body>
@@ -89,9 +88,9 @@ if (isset($_SESSION['cart']) && ($_SESSION['cart'] != [])) {
     <?php
 
 } else {
-    echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">Bạn chưa thêm gì vào giỏ hàng :
+    echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">You havent added anything to your cart :
 
-    <a class="text-center text-[32px] border border-slate-300 ..." href="index.php?act=san_pham" >Quay lại trang sản phẩm</a>
+    <a class="text-center text-[32px] border border-slate-300 ..." href="index.php?act=product" >Back to Product Page</a>
     </h1>';
 }
 ?>

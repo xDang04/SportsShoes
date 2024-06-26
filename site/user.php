@@ -16,66 +16,65 @@
     <header>
         <div class="flex items-center space-x-4 mx-6 my-4">
             <a href="index.php">
-                <h1 class="font-medium text-2xl font-semibold">Shop bán giày thể thao Sporty</h1>
+                <h1 class="font-medium text-2xl font-semibold">Sporty Sports Shoes Shop</h1>
             </a>
             <SPAN class="text-xl font-thin">|</SPAN>
             <SPAN class="font-thin text-[14px]">
-                TẠO TÀI KHOẢN</SPAN>
+                Creat Account</SPAN>
         </div>
     </header>
     <div class="MENU border-[1px] border-gray-200 grid grid-cols-3">
 
-        <form class="right bg-[#F6F5F3] col-span-2" method="post" action="index.php?act=signup">
+        <form class="right bg-[#F6F5F3] col-span-2" method="post" action="index.php?act=register">
 
             <div class="mx-32 my-20">
                 <a href="sign_in.php">
-                    <h3 class="font-bold text-2xl">ĐÃ CÓ TÀI KHOẢN ?</h3>
+                    <h3 class="font-bold text-2xl">You already have an account ?</h3>
                 </a>
                 <hr class="mt-5 mb-10">
 
-                <h1 class="font-bold text-3xl ">TẠO TÀI KHOẢN MỚI</h1>
+                <h1 class="font-bold text-3xl ">Creat new acount</h1>
                 <hr class="mt-5 mb-10">
 
-                <h3 class="font-bold text-2xl ">ĐĂNG NHẬP THÔNG TIN</h3>
-                <div class="bg-[#FFFFFF] my-10 rounded">
-                    <div class="mx-10 py-10 space-y-4">
-                        <label for="">Email *</label><br>
-                        <input type="email" placeholder="name@example.com" name="email"
-                            class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                <h3 class="font-bold text-2xl ">Login</h3>
+                    <div class="bg-[#FFFFFF] my-10 rounded">
+                        <div class="mx-10 py-10 space-y-4">
+                            <label for="">Email *</label><br>
+                            <input type="email" placeholder="name@example.com" name="email"
+                                class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        </div>
+                        <div class="mx-10 py-10 space-y-4">
+                            <label for="">Name Account *</label><br>
+                            <input type="text" placeholder="Username1234 ?" name="username"
+                                class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        </div>
+                        <div class="mx-10 py-10 space-y-4">
+                            <label for="">Password *</label><br>
+                            <input type="password" placeholder="********" name="password"
+                                class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        </div>
+                        <div class="mx-10 py-10 space-y-4">
+                            <label for="">FullName *</label><br>
+                            <input type="text" placeholder="Nguyễn Văn A" name="fullname"
+                                class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        </div>
+                        <div class="mx-10 py-10 space-y-4">
+                            <label for="">Adress *</label><br>
+                            <input type="text" placeholder="Trịnh Văn Bô , Hà Nội Street" name="address"
+                                class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        </div>
+                        <div class="mx-10 py-10 space-y-4">
+                            <label for="">Phone *</label><br>
+                            <input type="text" placeholder="098+ ?? " name="phone"
+                                class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required minlength="5">
+                        </div>
                     </div>
-                    <div class="mx-10 py-10 space-y-4">
-                        <label for="">Tên tài khoản *</label><br>
-                        <input type="text" placeholder="Username1234 ?" name="username"
-                            class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
-                    </div>
-                    <div class="mx-10 py-10 space-y-4">
-                        <label for="">Mật khẩu *</label><br>
-                        <input type="password" placeholder="********" name="password"
-                            class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
-                    </div>
-                    <div class="mx-10 py-10 space-y-4">
-                        <label for="">Họ và tên *</label><br>
-                        <input type="text" placeholder="Nguyễn Văn A" name="fullname"
-                            class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
-                    </div>
-                    <div class="mx-10 py-10 space-y-4">
-                        <label for="">Địa chỉ nhà *</label><br>
-                        <input type="text" placeholder="Trịnh Văn Bô , Hà Nội Street" name="address"
-                            class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
-                    </div>
-                    <div class="mx-10 py-10 space-y-4">
-                        <label for="">Điện thoại *</label><br>
-                        <input type="text" placeholder="098+ ?? " name="phone"
-                            class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required minlength="5">
-                    </div>
-                </div>
-                <button class="font-semibold text-xl px-6 py-2 bg-black text-[#FFFFFF]" type="submit" name="confirm">Xác
-                    nhận</button>
+                    <button class="font-semibold text-xl px-6 py-2 bg-black text-[#FFFFFF]" type="submit" name="confirm">Xác nhận</button>
+                </form>
             </div>
-        </form>
         <div class="left col-span-1">
             <div class="my-20 mx-10 space-y-4">
-                <h3>DỊCH VỤ KHÁCH HÀNG</h3>
+                <h3>Customer Service</h3>
                 <hr>
                 <div class="flex space-x-4 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -95,7 +94,7 @@
                         <path
                             d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z" />
                     </svg>
-                    <label for="">Gửi email cho chúng tôi</label>
+                    <label for="">Send us an email</label>
                 </div>
             </div>
 
@@ -106,7 +105,7 @@
             <div class="col-span-2">
                 <div class="flex items-center">
                     <img srcset="../upload/logo.png 2x" alt="" class="w-[80px] mx-4">
-                    <h2 class="text-3xl ">Shop bán giày thể thao Sporty</h2>
+                    <h2 class="text-3xl ">Sporty Sports Shoes Shop</h2>
                 </div>
                 <p class="mx-8 hover:underline my-6">But I must explain to you how all this mistaken idea of denouncing
                     pleasure and

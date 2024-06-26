@@ -2,7 +2,7 @@
 require_once "pdo.php";
 
 // Thêm loại hàng
-function them_danh_muc($categories_name, $image)
+function Insert_Category($categories_name, $image)
 {
     $sql = " INSERT INTO `categories`(`categories_name`,`image`) VALUES ('$categories_name','$image')";
 
@@ -10,48 +10,48 @@ function them_danh_muc($categories_name, $image)
 }
 
 // Xóa loại hàng theo mã loại
-function xoa_danh_muc($id)
+function Delete_Category($id)
 {
     $sql = "DELETE FROM categories WHERE id = $id";
     pdo_execute($sql);
 }
 
 // Truy vấn tất cả dữ liệu của bảng loại hàng
-function lay_tat_ca_danh_muc($order = "DESC") // Tham số order nhận giá trị mặc định DESC sắp xếp theo giảm dần
+function Get_All_Category($order = "DESC") // Tham số order nhận giá trị mặc định DESC sắp xếp theo giảm dần
 {
     $sql = "SELECT * FROM categories ORDER BY id $order";
-    $ds_danh_muc = pdo_query($sql);
-    return $ds_danh_muc;
+    $List_Category = pdo_query($sql);
+    return $List_Category;
 }
-function load_ten_dm($idmm){
-    if($idmm>0){
-    $sql="select * from categories where id=".$idmm;
-    $dm= pdo_query_one($sql);
-    extract($dm);
+function Load_Category_Name($id_categories){
+    if($id_categories>0){
+    $sql="select * from categories where id=".$id_categories;
+    $Category= pdo_query_one($sql);
+    extract($Category);
     return $categories_name;
     }else {
         return "";
     }
 } 
 // Truy vấn một loại hàng theo mã loại
-function lay_danh_muc_theo_ma($id)
+function Get_Category_By_Code($id)
 {
     $sql = "SELECT * FROM categories WHERE id = $id";
-    $danh_muc = pdo_query_one($sql);
+    $Category = pdo_query_one($sql);
 
-    return $danh_muc;
+    return $Category;
 }
 
 // Lấy ra tên loại hàng theo mã loại
-function lay_ten_danh_muc($id)
+function Get_Category_Name($id)
 {
     // Nếu mã loại truyền vào lớn hơn 0
     if ($id > 0) {
         $sql = "SELECT * FROM categories WHERE id = $id";
-        $danh_muc = pdo_query_one($sql);
+        $Category = pdo_query_one($sql);
         // Biến các cột(thuộc tính) trong bảng loại hàng thành các biến
 
-        $categories_name = $danh_muc['categories_name'];
+        $categories_name = $Category['categories_name'];
 
         return $categories_name; // Trả về biến(ten_loai) tên loại hàng
     } else {
@@ -61,7 +61,7 @@ function lay_ten_danh_muc($id)
 }
 
 // Cập nhật loại hàng theo mã loại
-function set_danh_muc($id, $categories_name, $image)
+function Set_Category($id, $categories_name, $image)
 {
     $sql = " UPDATE `categories` SET `categories_name`='$categories_name',`image`='$image' WHERE id = $id";
     pdo_execute($sql);

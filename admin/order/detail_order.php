@@ -2,7 +2,7 @@
             <div class="home mt-5 mr-8 bg-[#F4F6FA] h-auto rounded">
                 <!-- content -->
                 <h1 class="text-center text-cyan-500 pt-6 pb-8  text-4xl "
-                    style="font-family: 'Courier New', Courier, monospace">CHI TIẾT ĐƠN HÀNG</h1>
+                    style="font-family: 'Courier New', Courier, monospace">Oder details</h1>
 
                 <div class="px-40">
                     <div class="">      

@@ -6,7 +6,7 @@ include "../guest/product.php";
 include "../guest/category.php";
 include "../guest/order.php";
 include "../guest/account.php";
-include "../guest/binh_luan.php";
+include "../guest/comment.php";
 include "layout/header.php";
 include "../guest/thongke.php";
 
@@ -28,38 +28,38 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                     include "order/listorder.php";
                 }
                 break;
-            case "them_dm":
-                if (isset($_POST['btn_luu'])) {
+            case "Add_cate":
+                if (isset($_POST['btn_save'])) {
                     $categories_name = $_POST['categories_name'];
                     //file upload
                     $file = $_FILES['upload'];
                     $image = $file['name'];
-                    them_danh_muc($categories_name, $image);
-                    $thong_bao = "Thêm thành công";
+                    Insert_Category($categories_name, $image);
+                    $message = "Add successfully uploaded";
                 }
-                include "danh-muc/add.php";
+                include "Category/add.php";
                 break;
 
             case "list-cate":
-                $ds_danh_muc = lay_tat_ca_danh_muc();
-                include "danh-muc/list-cate.php";
+                $ListCategory = Get_All_Category();
+                include "Category/list-cate.php";
                 break;
 
-            case "xoa_dm":
+            case "Delete_cate":
                 if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    xoa_danh_muc($_GET['id']);
+                    Delete_Category($_GET['id']);
                 }
-                $ds_danh_muc = lay_tat_ca_danh_muc();
-                include "danh-muc/list-cate.php";
+                $ListCategory = Get_All_Category();
+                include "Category/list-cate.php";
                 break;
-            case "sua_dm":
+            case "View_Update_Cate":
                 if (isset($_GET['id']) && ($_GET['id']) > 0) {
                     $id = $_GET['id'];
-                    $danh_muc = lay_danh_muc_theo_ma($id);
-                    include "danh-muc/update-cate.php";
+                    $Category = Get_Category_By_Code($id);
+                    include "Category/update-cate.php";
                 }
                 break;
-            case "cap_nhat_dm":
+            case "Update_Category":
                 if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
                     $id = $_POST['id'];
                     $categories_name = $_POST['categories_name'];
@@ -71,19 +71,19 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                     }
                     $target_file = $target_dir . basename($_FILES['image']['name']);
                     if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                        $thong_bao = "Đăng tải ảnh thành công";
+                        $message = "Image posted successfully";
                     } else {
-                        $thong_bao = "Đăng tải ảnh lên thất bại !";
+                        $message = "Image update failed !";
                     }
-                    set_danh_muc($id, $categories_name, $image);
-                    $thong_bao = "Cập nhật thành công";
+                    Set_Category($id, $categories_name, $image);
+                    $message = "Cập nhật thành công";
                 }
-                $ds_danh_muc = lay_tat_ca_danh_muc();
-                include "danh-muc/list-cate.php";
+                $ListCategory = Get_All_Category();
+                include "Category/list-cate.php";
                 break;
 
-            case "them_san_pham":
-                if (isset($_POST['btn_luu'])) {
+            case "Add_Product":
+                if (isset($_POST['btn_save'])) {
 
                     $product_name = $_POST['product_name'];
                     $product_price = $_POST['product_price'];
@@ -106,17 +106,17 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                     $target_file = $target_dir . basename($_FILES['image']['name']);
                     $target_file = $target_dir . basename($_FILES['image2']['name']);
                     $target_file = $target_dir . basename($_FILES['image3']['name']);
-                    them_san_pham($product_name, $product_price, $product_price_sale, $description, $image, $image2, $image3, $origin, $id_categories);
-                    $thong_bao = "Thêm thành công";
+                    Insert_Product($product_name, $product_price, $product_price_sale, $description, $image, $image2, $image3, $origin, $id_categories);
+                    $message = "Thêm thành công";
                 }
-                $ds_danh_muc = lay_tat_ca_danh_muc();
-                include "san_pham/addsp.php";
+                $ListCategory = Get_All_Category();
+                include "Product/addsp.php";
                 break;
 
             case "listsp":
-                $ds_danh_muc = lay_tat_ca_danh_muc();
-                $ds_san_pham = lay_tat_ca_san_pham_admin();
-                include "san_pham/listsp.php";
+                $ListCategory = Get_All_Category();
+                $ListProduct = Get_All_Product_Admin();
+                include "Product/listsp.php";
                 break;
 
             /* case "danh_sach_sp_trang":
@@ -124,23 +124,23 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
             include "san_pham/listsp.php";
             break;
 */
-            case "xoa_san_pham":
+            case "Delete_product":
                 if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                    $san_pham = xoa_san_pham($_GET['id']);
+                    $Product = Delete_product($_GET['id']);
                 }
-                $danh_sach_sp = lay_tat_ca_san_pham_admin();
-                include "san_pham/listsp.php";
+                $ListProduct = Get_All_Product_Admin();
+                include "Product/listsp.php";
                 break;
 
-            case "sua_san_pham":
+            case "Update_Product":
                 if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $san_pham = lay_san_pham_theo_ma($_GET['id']);
+                    $Product = Get_Product_By_Code($_GET['id']);
                 }
-                $ds_danh_muc = lay_tat_ca_danh_muc();
-                include "san_pham/updatesp.php";
+                $ListCategory = Get_All_Category();
+                include "Product/updatesp.php";
                 break;
 
-            case "cap_nhat_sp":
+            case "Update_Product":
                 if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
                     $id = $_POST['id'];
                     $product_name = $_POST['product_name'];
@@ -154,19 +154,19 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                     $target_file = $target_dir . basename($_FILES['image2']['name']);
 
                     if (move_uploaded_file($_FILES['image2']['tmp_name'], $target_file)) {
-                        $thong_bao = "Đăng tải ảnh thành công";
+                        $thong_bao = "Image posted successfully";
                     } else {
-                        $thong_bao = "Cập nhật hình ảnh thất bại !";
+                        $thong_bao = "Image update failed !";
                     }
 
                     $id_categories = $_POST['id_categories'];
 
-                    cap_nhat_san_pham($id, $product_name, $product_price, $product_price_sale, $description, $origin, $image2, $id_categories);
+                    Update_Product($id, $product_name, $product_price, $product_price_sale, $description, $origin, $image2, $id_categories);
                 }
-                $danh_sach_sp = lay_tat_ca_san_pham_admin();
-                include "san_pham/listsp.php";
+                $danh_sach_sp = Get_All_Product_Admin();
+                include "Product/listsp.php";
                 break;
-            case "them_tai_khoan":
+            case "InsertAccount":
                 if (isset($_POST['btn_insert'])) {
                     $user_name = $_POST['user_name'];
                     $full_name = $_POST['full_name'];
@@ -175,35 +175,35 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                     $address = $_POST['address'];
                     $password = $_POST['password'];
                     $role = $_POST['role'];
-                    them_tai_khoan($user_name, $full_name, $email, $phone, $address, $password, $role);
-                    $thong_bao = "Thêm tài khoản thành công";
+                    InsertAccount($user_name, $full_name, $email, $phone, $address, $password, $role);
+                    $message = "Thêm tài khoản thành công";
                 }
                 include "user/add-user.php";
                 break;
 
             case "list-user":
                 $role_test = role();
-                $users = loadall_taikhoan();
+                $users = Load_All_Account();
                 include "user/list-user.php";
                 break;
 
 
-            case "xoa_us":
+            case "Delete_us":
                 if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                    $tai_khoan = xoa_tai_khoan($_GET['id']);
+                    $Account = Delete_Account($_GET['id']);
                 }
 
-                $users = loadall_taikhoan();
+                $users = Load_All_Account();
                 include "user/list-user.php";
                 break;
 
-            case "sua_us":
+            case "View_Update_us":
                 if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                    $tai_khoan = lay_tai_khoan_theo_ma($_GET['id']);
+                    $Account = Get_Account_By_Code($_GET['id']);
                     include "user/update-user.php";
                 }
                 break;
-            case "cap_nhat_tk":
+            case "Update_Account":
                 if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
                     $id = $_POST['id'];
                     $user_name = $_POST['user_name'];
@@ -214,9 +214,9 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                     $password = $_POST['password'];
                     $role = $_POST['role'];
 
-                    cap_nhat_tai_khoan_admin($id, $user_name, $full_name, $email, $phone, $address, $password, $role);
-                    $thong_bao = "Cập nhật thành công";
-                    $users = loadall_taikhoan();
+                    Update_Account_Admin($id, $user_name, $full_name, $email, $phone, $address, $password, $role);
+                    $message = "Update successfully";
+                    $users = Load_All_Account();
                 }
                 include "user/list-user.php";
                 break;
@@ -235,67 +235,32 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
                 include "order/detail_order.php";
                 break;
 
-            case "cap_nhat_sp":
-                if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
-                    $ma_hang_hoa = $_POST['ma_hang_hoa'];
-                    $ten_hang_hoa = $_POST['ten_hang_hoa'];
-                    $don_gia = $_POST['don_gia'];
-                    $giam_gia = $_POST['giam_gia'];
-
-                    $hinh = $_FILES['hinh']['name'];
-
-                    $target_dir = "../public/image/";
-                    $target_file = $target_dir . basename($_FILES['hinh']['name']);
-
-                    if (move_uploaded_file($_FILES['hinh']['tmp_name'], $target_file)) {
-                        $thong_bao = "Đăng tải ảnh thành công";
-                    } else {
-                        $thong_bao = "Cập nhật hình ảnh thất bại !";
-                    }
-
-                    $ngay_nhap = $_POST['ngay_nhap'];
-                    $mau = $_POST['mau'];
-                    $mo_ta = htmlentities($_POST['mo_ta']);
-                    $thong_so = htmlentities($_POST['thong_so']);
-                    $dac_biet = $_POST['dac_biet'];
-                    $so_luot_xem = $_POST['so_luot_xem'];
-                    $ma_loai = $_POST['ma_loai'];
-
-                    cap_nhat_san_pham($ma_hang_hoa, $ten_hang_hoa, $don_gia, $giam_gia, $hinh, $ngay_nhap, $mau, $mo_ta, $thong_so, $dac_biet, $so_luot_xem, $ma_loai);
-                    $thong_bao = "Cập nhật thành công";
-                }
-                $danh_sach_sp = lay_tat_ca_san_pham_admin();
-                include "san_pham/list.php";
-                break;
-
-
-
             case "binh_luan":
-                $danh_sach_bl = lay_tat_ca_binh_luan();
-                $danh_sach_sp = lay_tat_ca_san_pham_admin();
+                $List_Comment = Get_All_Comment();
+                $ListProduct = Get_All_Product_Admin();
 
-                include "binh_luan/listbl.php";
+                include "comment/listComment.php";
                 break;
             case "thong_ke":
-                $ds_thong_ke_hh = loadall_thongke_2();
-                include "thong_ke/list.php";
+                $ds_thong_ke_hh = Load_All_Statistics_2();
+                include "Statistics/list.php";
                 break;
-            case "chi_tiet_bl":
-                if (isset($_GET['ma_hang_hoa']) && ($_GET['ma_hang_hoa'] > 0)) {
-                    $ds_chi_tiet_bl = lay_binh_luan_theo_hh($_GET['ma_hang_hoa']);
-                }
-                include "binh_luan/chi_tiet_binh_luan.php";
-                break;
+            // case "chi_tiet_bl":
+            //     if (isset($_GET['ma_hang_hoa']) && ($_GET['ma_hang_hoa'] > 0)) {
+            //         $ds_chi_tiet_bl = lay_binh_luan_theo_hh($_GET['ma_hang_hoa']);
+            //     }
+            //     include "comment/chi_tiet_binh_luan.php";
+            //     break;
 
-            case "xoa_binh_luan":
+            case "Delete_Comment":
                 if (isset($_GET['id']) && ($_GET['id']) > 0) {
-                    $tai_khoan = xoa_binh_luan($_GET['id']);
+                    $Account = Delete_Comment($_GET['id']);
                 }
                 if (isset($_GET['id_product']) && ($_GET['id_product'] > 0)) {
-                    $ds_chi_tiet_bl = lay_binh_luan_theo_hh($_GET['id_product']);
+                    $List_Details_Comment = Get_Comment_By_Shipment($_GET['id_product']);
                 }
-                $ds_binh_luan = lay_tat_ca_binh_luan();
-                include "binh_luan/listbl.php";
+                $List_Comment = Get_All_Comment();
+                include "comment/listComment.php";
                 break;
 
 
@@ -309,18 +274,18 @@ if (isset($_SESSION['id_user']) && in_array(mysqli_fetch_array(mysqli_query($db_
             //   break;*/
 
             default:
-                $danh_muc = count(lay_tat_ca_danh_muc());
-                $san_pham = count(lay_tat_ca_san_pham_admin());
-                $tai_khoan = count(loadall_taikhoan());
-                $binh_luan = count(lay_tat_ca_binh_luan());
+                $Category = count(Get_All_Category());
+                $Product = count(Get_All_Product_Admin());
+                $Account = count(Load_All_Account());
+                $Comment = count(Get_All_Comment());
                 include "layout/home.php";
                 break;
         }
     } else {
-        $danh_muc = count(lay_tat_ca_danh_muc());
-        $san_pham = count(lay_tat_ca_san_pham_admin());
-        $tai_khoan = count(loadall_taikhoan());
-        $binh_luan = count(lay_tat_ca_binh_luan());
+        $Category = count(Get_All_Category());
+        $Product = count(Get_All_Product_Admin());
+        $Account = count(Load_All_Account());
+        $Comment = count(Get_All_Comment());
 
         include "layout/home.php";
     }

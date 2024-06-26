@@ -6,15 +6,15 @@
                         style="font-family: 'Courier New', Courier, monospace">LIST ĐƠN HÀNG</h1>
                     <table class="table border-2 border-cyan-500 shadow-lg shadow-cyan-500/50 mx-auto">
                         <tr class="border-2 border-cyan-500  text-[#551AA9] ">
-                            <th class="border-2 border-cyan-500   py-2">ID Đơn hàng</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Chi tiết đơn hàng</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Tên khách hàng</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Số điện thoại</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Địa chỉ</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Tổng giá trị</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Trạng Thái</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Thời gian đặt hàng</th>
-                            <th class="border-2 border-cyan-500 px-4 py-2">Phương thức thanh toán</th>
+                            <th class="border-2 border-cyan-500   py-2">ID Order</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Details Oder</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Name User</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Phone</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Address</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Total</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Status/th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Order Time</th>
+                            <th class="border-2 border-cyan-500 px-4 py-2">Payment Method</th>
                             <th class="border-2 border-cyan-500 px-4 py-2">
                                 Action
                             </th>

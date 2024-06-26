@@ -1,28 +1,28 @@
 <?php
 $a = '
 <div style="margin-left:30px;width:420px;padding:40px;border:1px #ccc solid;border-radius:10px;color:#000;background-image: linear-gradient(-45deg, #cfcfcf, transparent);">
-        <h1 style="font-weight:400;text-align:center">Hoá đơn thanh toán</h1>
-                                <div>🔵 <b style="padding-left:5px;color:#888a8d;margin-top:">Người mua : </b><b style="color:#478fcc;font-weight: 500;margin-top:-30px;margin-left:30px">Hồ Xuân Đăng</b>
-                                <div>🔵 <b style="padding-left:5px;color:#888a8d;margin-top:">Địa chỉ nhận hàng : </b><b style="color:#478fcc;font-weight: 500;margin-top:-30px;margin-left:30px">tn16204646@gmail.com</b>
+        <h1 style="font-weight:400;text-align:center">Payment</h1>
+                                <div>🔵 <b style="padding-left:5px;color:#888a8d;margin-top:">Buyer : </b><b style="color:#478fcc;font-weight: 500;margin-top:-30px;margin-left:30px">Hồ Xuân Đăng</b>
+                                <div>🔵 <b style="padding-left:5px;color:#888a8d;margin-top:">Receipt address : </b><b style="color:#478fcc;font-weight: 500;margin-top:-30px;margin-left:30px">tn16204646@gmail.com</b>
                                 <div>
                                    <table border="1">
                                         <thead>
                                         <tr>
-                                             <th>Sản phẩm</th>
-                                             <th>Số lượng</th>
-                                             <th>Giá</th>
+                                             <th>Product</th>
+                                             <th>Quantities</th>
+                                             <th>Price</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                             <th>Sản phẩm</th>
-                                             <th>Số lượng</th>
+                                             <th>Product</th>
+                                             <th>Quantities</th>
                                              <th>Giá</th>
                                         </tr>
                                         <tr>
                                              <th>Sản phẩm</th>
                                              <th>Số lượng</th>
-                                             <th>Giá</th>
+                                             <th>Price</th>
                                         </tr>
                                         </tbody>
                                    </table>

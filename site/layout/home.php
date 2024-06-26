@@ -127,7 +127,7 @@
 </div>
 <div class="dmnb my-10 max-w-[1080px] mx-auto grid grid-cols-2  items-center"
     style="font-family: 'Times New Roman', Times, serif;">
-    <div class=""><button class="border-2 border-black py-1 px-5 font-black flex items-center">Danh mục<svg
+    <div class=""><button class="border-2 border-black py-1 px-5 font-black flex items-center">Category<svg
                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-activity mx-2" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -143,13 +143,13 @@
 <div class="grid grid-cols-4 max-w-6xl mx-auto gap-2  my-20">
     <!-- danh mục -->
     <?php
-    foreach ($dsdm as $dm) {
-        extract($dm);
-        $image = $img_path . $dm['image'];
-        $linkdm = "index.php?act=san_pham&iddm=" . $id;
+    foreach ($ListCategory as $ListCate) {
+        extract($ListCate);
+        $image = $img_path . $ListCate['image'];
+        $linkCategory = "index.php?act=san_pham&iddm=" . $id;
         echo '
                         <div class="">
-                        <a href="' . $linkdm . '"><img style="width:282px ; height:300px" src="' . $image . '"></a>
+                        <a href="' . $linkCategory . '"><img style="width:282px ; height:300px" src="' . $image . '"></a>
                         <h3 class="text-center my-5 text-xl ">' . $categories_name . '</h3></div>
                     ';
     }
@@ -161,7 +161,7 @@
         <!-- <span><a href="">Trước</a></span> -->
 
     </div>
-    <span class="text-center text-[20px] border-2 py-2 px-3 font-black">SẢN PHẨM CAO CẤP</span>
+    <span class="text-center text-[20px] border-2 py-2 px-3 font-black">Product VIP</span>
     <div class="text-right">
         <!-- <span><a href="">Sau</a></span> -->
     </div>
@@ -178,13 +178,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
         </svg>
         <span class=" mx-4 text-[#551AA9] text-[20px] items-center"
-            style="font-family: 'Times New Roman', Times, serif;">Giới hạn</span>
+            style="font-family: 'Times New Roman', Times, serif;">Limited</span>
     </div>
     <div class="flex ">
         <form class="border border-gray-500 p-2 w-[225px] rounded-md relative" action="index.php?act=san_pham"
             method="post">
-            <input type="text" class="pl-2 border-0" placeholder="Tìm kiếm sản phẩm" name="kw">
-            <button type="submit" name="timkiem" class="absolute right-[10px]">
+            <input type="text" class="pl-2 border-0" placeholder="Search Product" name="kw">
+            <button type="submit" name="Search" class="absolute right-[10px]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray"
                     class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -202,7 +202,7 @@
 </div>
 <div class="LV grid grid-cols-3 mt-10 mx-auto max-w-6xl gap-10" style="font-family: 'Courier New', Courier, monospace;">
     <?php
-    $new_product = loadall_product_trangchu();
+    $new_product = Load_All_Product_Home();
     $i = 0;
     foreach ($new_product as $product) {
         extract($product);
@@ -225,7 +225,7 @@
                 <input type="hidden" name="product_name" value="' . $product_name . '">
                 <input type="hidden" name="image" value="' . $image2 . '">
                 <input type="hidden" name="product_price" value="' . $product_price . '">
-                <input type="submit" name="addtocart"  value="MUA HÀNG">
+                <input type="submit" name="addtocart"  value="BUY NOW">
             </form>
             
                 </button>
@@ -246,7 +246,7 @@
                 d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
         </svg>
 
-        <span class=" mx-4 text-[#551AA9] text-[20px] items-center">Tin Tức</span>
+        <span class=" mx-4 text-[#551AA9] text-[20px] items-center">News</span>
     </div>
     <div class="flex ">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray"
@@ -254,33 +254,29 @@
             <path stroke-linecap="round" stroke-linejoin="round"
                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
         </svg>
-        <span class=" mx-4">Tìm kiếm</span>
+        <span class=" mx-4">Search</span>
     </div>
 </div>
 <div class="max-w-6xl mx-auto">
     <div class="flex">
         <img style="width:436px; height:270px" srcset="../upload/g15.jpg" alt="">
         <div class="ml-10">
-            <h3 class="font-bold text-xl">Giày bóng chuyền Wave Lightning</h3>
+            <h3 class="font-bold text-xl">Wave Lightning Volleyball Shoes</h3>
             <div class="my-4">
                 <span class="inline-block bg-[#142850]  px-2 py-1 rounded-full text-white">2022</span>
                 <span class="text-[#8695A4] text-xl ml-4">Dashboard</span>
             </div>
-            <p class=" hover:underline">Wave Lightning là dòng giày bóng chuyền được rất nhiều các VĐV chuyên nghiệp lựa
-                chọn sử dụng.
-                Ngay từ phiên bản đầu tiên mẫu giày này đã gây ấn tượng lớn với người chơi bởi trọng lượng nhẹ và sự
-                linh hoạt trong
-                từng bước chạy cùng với đó là sự êm ái, bảo vệ chân tối đa cho các VĐV.
-                Wave Lightning Z7 MID là mẫu giày mới được Mizuno cho ra mắt với những cải tiến nổi bật hơn ở phần gót
-                giày
-                và đế giày nhằm giúp nâng cao hiệu suất thi đấu cho các VĐV, đặc biệt hỗ trợ lực cho mỗi pha bật nhảy.
-                Gót giày của Wave Lightning Z7 MID được làm tròn hơn kết hợp với các rãnh phần đế trước cho phép các VĐV
-                phản ứng
-                nhanh hơn, di chuyển linh hoạt và đổi hướng nhanh chóng trong từng bước chạy. Phần đế ngoài được tăng
-                cường độ bám,
-                ổn định hơn so với phiên bản tiền nhiệm. Đặc biệt là cổ giày cao hơn, giúp ổn định cổ chân và bảo vệ tối
-                đa mắt cá
-                chân của các VĐV mỗi khi thi đấu. </p>
+            <p class=" hover:underline">Wave Lightning is a range of volleyball shoes used by a lot of professional 
+                athletes.
+                From its first version, this shoe has impressed players with its light weight and flexibility 
+                in each run step, along with its smoothness, maximum foot protection for the athletes.
+                The Wave Lightning Z7 MID is a new Mizuno shoe with more prominent improvements in shoe heels 
+                and shoe stands to help enhance competitive performance for athletes, especially for strength 
+                support for each jump.
+                The more rounded Wave Lightning Z7 MID shoe tail combined with the front suspension brackets 
+                allows riders to react faster, move flexibly, and change directions quickly in each run.
+                 The outer support is stronger and more stable than its predecessor. Especially the higher shoe neck,
+                 which stabilizes the ankle and protects the athlete's ankle every time the competition takes place. </p>
         </div>
     </div>
     <hr class="my-10 bg-[#E0E0E0]">
@@ -289,14 +285,14 @@
     <div class="flex">
         <img style="width:436px; height:270px" srcset="../upload/giaythoitrang.webp" alt="">
         <div class="ml-10">
-            <h3 class="font-bold text-xl">GIÀY THỜI TRANG NAM CROCS PACER LITERIDE 360 - BLACK/SLATE GREY</h3>
+            <h3 class="font-bold text-xl">Men's Time Shoes CROCS PACER LITERIDE 360 - BLACK/SLATE GREY</h3>
             <div class="my-4">
                 <span class="inline-block bg-[#142850]  px-2 py-1 rounded-full text-white">2023</span>
                 <span class="text-[#8695A4]  ml-4">Illustration</span>
             </div>
-            <p class=" hover:underline">Cảm nhận bước đột phá mới về sự thoải mái với bộ sưu tập Crocs LiteRide.
-                Những đôi giày được tích hợp lớp đệm LiteRide ™ êm ái làm tăng thêm độ mềm mại cho bàn chân.
-                Kiểu dáng thể thao, năng động giúp bạn tận hưởng những bước đi thư thả nhất trên từng chặng đường.</p>
+            <p class=" hover:underline">Feel a new breakthrough in comfort with the Crocs LiteRide collection.
+                These shoes are integrated with a smooth LiteRide TM pad that adds softness to the feet.
+                Sporty, dynamic style allows you to enjoy the most relaxed steps on every step of the road.</p>
         </div>
     </div>
     <hr class="my-10 bg-[#E0E0E0]">

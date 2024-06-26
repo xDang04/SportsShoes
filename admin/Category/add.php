@@ -8,7 +8,7 @@
                         <path d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM4 8a3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4 3.91 3.91 0 0 0-4 4zm6 0a1.91 1.91 0 0 1-2 2 1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2zM4 18a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v1h2v-1a5 5 0 0 0-5-5H7a5 5 0 0 0-5 5v1h2z">
                         </path>
                     </svg>
-                    <h1 class="text-[20px] mx-4 font-semibold text-sky-600 my-5">Thêm danh mục</h1>
+                    <h1 class="text-[20px] mx-4 font-semibold text-sky-600 my-5">Add Category</h1>
                 </div>
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: #5fe6c2;">
@@ -20,7 +20,7 @@
 
             </div>
 
-            <form action="index.php?act=them_dm" method="post" enctype="multipart/form-data" class="">
+            <form action="index.php?act=Add_cate" method="post" enctype="multipart/form-data" class="">
 
 
                 <p class="text-[#551AA9] text-[20px] my-4" for="">Cate_Name</p><input type="text" required name="categories_name" placeholder="Túi ...." class=" px-10 py-2 rounded-md">
@@ -29,12 +29,12 @@
 
 
                 <br>
-                <button type="submit" name="btn_luu" class="bg-[#ff523b] my-10 py-2 px-8 hover:bg-[#BAAACE] hover:text-white rounded-lg">Add
+                <button type="submit" name="btn_save" class="bg-[#ff523b] my-10 py-2 px-8 hover:bg-[#BAAACE] hover:text-white rounded-lg">Add
                     Cate</button>
             </form>
             <?php
-            if (isset($thong_bao) && ($thong_bao != "")) {
-                echo "<h3 class='alert-text'>$thong_bao</h3>";
+            if (isset($message) && ($message != "")) {
+                echo "<h3 class='alert-text'>$message</h3>";
             }
             ?>
         </div>

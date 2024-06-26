@@ -52,19 +52,19 @@ function get_status($n)
 {
     switch ($n) {
         case '0':
-            $tt = 'Đơn hàng mới';
+            $tt = 'New Order';
             break;
         case '1':
-            $tt = 'Đang xử lý';
+            $tt = 'Processing';
             break;
         case '2':
-            $tt = 'Đang giao hàng';
+            $tt = 'Delivery';
             break;
         case '3':
-            $tt = 'Đã giao hàng';
+            $tt = 'Delivered';
             break;
         default:
-            $tt = 'Đơn hàng mới';
+            $tt = 'New Order';
             break;
     }
     return $tt;

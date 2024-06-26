@@ -9,29 +9,28 @@
                         <path d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z">
                         </path>
                     </svg>
-                    <a href="index.php?act=list-user" class="text-[20px] mx-4 font-semibold text-sky-600 ">Danh
-                        sách</a>
+                    <a href="index.php?act=list-user" class="text-[20px] mx-4 font-semibold text-sky-600 ">List</a>
                 </div>
 
             </div>
-            <form action="index.php?act=them_tai_khoan" method="POST" enctype="multipart/form-data">
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Họ và tên :</p>
+            <form action="index.php?act=InsertAccount" method="POST" enctype="multipart/form-data">
+                <p class="text-[#551AA9] text-[20px] my-4" for="">FullName :</p>
                 <input required type="text" name="full_name" placeholder="name....." class="px-10 py-2 rounded-md">
                 <p class="text-[#551AA9] text-[20px] my-4" for="">Email *</p>
                 <input required type="email" name="email" placeholder="Email....." class="px-10 py-2 rounded-md">
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Tài khoản</p>
+                <p class="text-[#551AA9] text-[20px] my-4" for="">Account</p>
                 <input required type="text" name="user_name" placeholder="username....." class="px-10 py-2 rounded-md">
 
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Mật khẩu</p>
+                <p class="text-[#551AA9] text-[20px] my-4" for="">Password</p>
                 <input required type="password" name="password" placeholder="******" class="px-10 py-2 rounded-md">
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Điện Thoại *</p>
+                <p class="text-[#551AA9] text-[20px] my-4" for="">Phone *</p>
                 <input required type="number" name="phone" placeholder="+098....." class="px-10 py-2 rounded-md">
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Địa chỉ *</p>
+                <p class="text-[#551AA9] text-[20px] my-4" for="">Address *</p>
                 <input required type="text" name="address" placeholder="Hà Nội....." class="px-10 py-2 rounded-md">
                 <div class=" py-10 space-y-4 space-x-4">
-                    <label for="" class="text-[#551AA9] text-[20px] my-4">Vai trò *</label><br>
-                    <input type="radio" name="role" value="0"><label for="">Khách hàng</label>
-                    <input type="radio" name="role" value="1"><label for="">Quản trị viên</label>
+                    <label for="" class="text-[#551AA9] text-[20px] my-4">Role *</label><br>
+                    <input type="radio" name="role" value="0"><label for="">User</label>
+                    <input type="radio" name="role" value="1"><label for="">Admin</label>
                 </div>
                 <input type="submit" name="btn_insert" value="Add User" class="bg-[#ff523b] my-10 py-2 px-8 hover:bg-[#BAAACE] hover:text-white rounded-lg">
             </form>

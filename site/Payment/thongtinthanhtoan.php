@@ -17,8 +17,8 @@
 		<div class="row">
 
 			<?php
-			$id_dangky = $_SESSION['id_khachhang'];
-			$sql_get_vanchuyen = mysqli_query($mysqli, "SELECT * FROM tbl_shipping WHERE id_dangky='$id_dangky' LIMIT 1");
+			$register = $_SESSION['id_khachhang'];
+			$sql_get_vanchuyen = mysqli_query($mysqli, "SELECT * FROM tbl_shipping WHERE id_register='$id_register' LIMIT 1");
 			$count = mysqli_num_rows($sql_get_vanchuyen);
 			if ($count > 0) {
 				$row_get_vanchuyen = mysqli_fetch_array($sql_get_vanchuyen);

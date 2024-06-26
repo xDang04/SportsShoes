@@ -8,7 +8,7 @@
 
         <div class="detail-pro-user-review">
             <div class="detail-pro-user-rate">
-                <span class="detail-pro-date"><?= $ngay_bl ?></span>
+                <span class="detail-pro-date"><?= $DateComment ?></span>
                 <div class="detail-pro-user-stars">
                     <?php
                     for ($i = 1; $i <= $stars; $i++) {
@@ -40,7 +40,7 @@
         }
     }
 
-    if (isset($_SESSION['dangky']) && ($check == true)) {
+    if (isset($_SESSION['register']) && ($check == true)) {
         $id = $_SESSION['id_user'];
         $order = loadall_order($id);
         echo '
@@ -66,12 +66,12 @@
                 </div>
     
                 <div class="">
-                <h3 class="my-4">Viết bình luận bạn tại đây</h3>
-                <textarea class="border-2 border-black p-5 w-full" name="comment" id="comment" cols="30" rows="10" placeholder="Viết bình luận của bạn tại đây ..."></textarea>
+                <h3 class="my-4">Write your comment here</h3>
+                <textarea class="border-2 border-black p-5 w-full" name="comment" id="comment" cols="30" rows="10" placeholder="Write your comment here ..."></textarea>
             </div>
-                <button class="bg-black my-8 rounded-2xl text-white py-3 text-2xl font-semibold px-8" name="btn_insert">Đăng tải bình luận</button>';
+                <button class="bg-black my-8 rounded-2xl text-white py-3 text-2xl font-semibold px-8" name="btn_insert">Post a comment</button>';
     } else {
-        echo "<a>Bạn phải mua hàng mới được đánh giá</a>";
+        echo "<a>You have to buy a product to be rated.</a>";
     }
     ?>
 

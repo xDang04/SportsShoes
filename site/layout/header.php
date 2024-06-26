@@ -719,7 +719,7 @@ body {
                 'Open Sans', 'Helvetica Neue', sans-serif" id="content">
             <div class="my-4">
                 <?php
-                if (!isset($_SESSION['dangky'])) {
+                if (!isset($_SESSION['register'])) {
                     echo '
                     <div class="flex justify-between items-center">
                     <h1 class="font-bold text-2xl">ĐĂNG NHẬP</h1>
@@ -804,11 +804,11 @@ body {
                 </div>
 
                 <div class="items-center text-center text-[30px] ">
-                    <a href="index.php">Giày thể thao Sporty</a>
+                    <a href="index.php">Sporty Sports Shoes</a>
                 </div>
                 <div class="flex gap-10 justify-end items-center">
                     <button id="btn2" class="font-black text-center text-[16px]">
-                        <?php echo isset($_SESSION['dangky']) ? 'Chào: ' . $_SESSION['dangky'] :  'Tài khoản' ?></button>
+                        <?php echo isset($_SESSION['register']) ? 'Hi: ' . $_SESSION['register'] :  'Account' ?></button>
 
 
 
@@ -817,7 +817,7 @@ body {
                         <div id="cart" class="cart" data-totalitems="0">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 3 24 20" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-right" data-totalitems="1">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                                <?php if(isset($_SESSION['dangky'])){?><span style="position: absolute;margin-top:-35px;z-index:20;color:#fff;border-radius:100%;background:#000;font-weight:bold;line-height:5px" class="ml-9 p-0.5"><?=count($_SESSION['cart'])?></span><?php }?>
+                                <?php if(isset($_SESSION['Register'])){?><span style="position: absolute;margin-top:-35px;z-index:20;color:#fff;border-radius:100%;background:#000;font-weight:bold;line-height:5px" class="ml-9 p-0.5"><?=count($_SESSION['cart'])?></span><?php }?>
                             </svg>
                         </div>
                         <div>
@@ -829,25 +829,25 @@ body {
             </div>
         </div>
         <div class="list-none hidden flex justify-center space-x-8 my-10 " id="menu">
-            <li><a class="hover:underline" href="index.php">Trang chủ</a></li>
-            <li><a class="hover:underline" href="index.php?act=san_pham">Sản phẩm</a></li>
-            <li><a class="hover:underline" href="index.php?act=gioi_thieu">Giới Thiệu</a></li>
-            <li><a class="hover:underline" href="index.php?act=lien_he">Liên hệ</a></li>
-            <li><a class="hover:underline" href="">Tin Tức</a></li>
+            <li><a class="hover:underline" href="index.php">Home</a></li>
+            <li><a class="hover:underline" href="index.php?act=product">Product</a></li>
+            <li><a class="hover:underline" href="index.php?act=introduction">Introduction</a></li>
+            <li><a class="hover:underline" href="index.php?act=contact">Contact</a></li>
+            <li><a class="hover:underline" href="">News</a></li>
 
         </div>
         <div class="list-none hidden flex justify-center space-x-8 my-10 " id="tk">
-            <form class="w-[300px] h-[35px] border border-gray-400  rounded-md" action="index.php?act=san_pham" method="post">
-                <input type="search" class="pl-2" placeholder="Tìm kiếm sản phẩm" name="kw">
-                <button class="bg-green-500 rounded-md text-white w-[118.5px] p-1 border border-gray-400" type="submit">Tìm Kiếm</button>
+            <form class="w-[300px] h-[35px] border border-gray-400  rounded-md" action="index.php?act=product" method="post">
+                <input type="search" class="pl-2" placeholder="Search Product" name="kw">
+                <button class="bg-green-500 rounded-md text-white w-[118.5px] p-1 border border-gray-400" type="submit">Search</button>
 
             </form>
         </div>
         <script>
         const tk = document.getElementById("tk");
-        const tim_kiem = document.getElementById("tim_kiem");
+        const Search = document.getElementById("Search");
 
-        tim_kiem.addEventListener("click", function() {
+        Search.addEventListener("click", function() {
             tk.classList.toggle("hidden");
         });
         </script>

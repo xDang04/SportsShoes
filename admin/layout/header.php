@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SportyShoes</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <style>
@@ -26,7 +26,7 @@
                 <path
                     d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z" />
             </svg>
-            <li class="list-none"><a href="">Hồ Sơ</a></li>
+            <li class="list-none"><a href="">Profile</a></li>
         </div>
 
         <div class="flex items-center space-x-4">
@@ -74,7 +74,7 @@
                         <path
                             d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z" />
                     </svg>
-                    <a href="../site/index.php" class="hover:text-[#551AA9]">Xem trang Web</a>
+                    <a href="../site/index.php" class="hover:text-[#551AA9]">View Page Web</a>
                 </div>
 
                 <div class="flex py-4 px-4 items-center space-x-2  hover:shadow-lg hover:shadow-cyan-500/50">
@@ -85,7 +85,7 @@
                         <path
                             d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.044c-.613-.181-.613-1.049 0-1.23l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
                     </svg>
-                    <a href="index.php" class="hover:text-[#551AA9]">Trang chủ</a>
+                    <a href="index.php" class="hover:text-[#551AA9]">Home</a>
                 </div>
 
                 <div class="flex py-4 px-4 hover:shadow-lg hover:shadow-cyan-500/50">
@@ -95,7 +95,7 @@
                             d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A4.962 4.962 0 0 1 18 11a5 5 0 0 1-5-5z">
                         </path>
                     </svg>
-                    <a href="index.php?act=listsp" class="hover:text-[#551AA9]">Quản Lý sản phẩm</a>
+                    <a href="index.php?act=listsp" class="hover:text-[#551AA9]">Manage Product</a>
                 </div>
                 <div class="flex py-4 px-4 hover:shadow-lg hover:shadow-cyan-500/50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="fill: #3e4a87;">
@@ -104,7 +104,7 @@
                             d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A4.962 4.962 0 0 1 18 11a5 5 0 0 1-5-5z">
                         </path>
                     </svg>
-                    <a href="index.php?act=list-user" class="hover:text-[#551AA9]">Quản Lý Users</a>
+                    <a href="index.php?act=list-user" class="hover:text-[#551AA9]">Manage Users</a>
                 </div>
                 <div class="flex py-4 px-4 hover:shadow-lg hover:shadow-cyan-500/50  ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="fill: #34fafe;">
@@ -113,7 +113,7 @@
                             d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A4.962 4.962 0 0 1 18 11a5 5 0 0 1-5-5z">
                         </path>
                     </svg>
-                    <a href="index.php?act=list-cate" class="hover:text-[#551AA9]">Quản Lý Danh Mục</a>
+                    <a href="index.php?act=list-cate" class="hover:text-[#551AA9]">Manage Category</a>
                 </div>
                 <div class="flex py-4 px-4 space-x-2 hover:shadow-lg hover:shadow-cyan-500/50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -123,7 +123,7 @@
                         <path
                             d="M7.066 6.76A1.665 1.665 0 0 0 4 7.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 0 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 7.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 0 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z" />
                     </svg>
-                    <a href="index.php?act=binh_luan" class="hover:text-[#551AA9]">Bình Luận</a>
+                    <a href="index.php?act=binh_luan" class="hover:text-[#551AA9]">Comment</a>
                 </div>
                 <div class="flex py-4 px-4 space-x-2 hover:shadow-lg hover:shadow-cyan-500/50">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -131,7 +131,7 @@
                         <path
                             d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                     </svg>
-                    <a href="index.php?act=listorder" class="hover:text-[#551AA9]">Đơn Hàng</a>
+                    <a href="index.php?act=listorder" class="hover:text-[#551AA9]">Oder</a>
                 </div>
 
                 <div class="flex py-4 px-4 hover:shadow-lg hover:shadow-cyan-500/50">
@@ -140,7 +140,7 @@
                         <path d="M13 12.586 8.707 8.293 7.293 9.707 13 15.414l3-3 4.293 4.293 1.414-1.414L16 9.586z">
                         </path>
                     </svg>
-                    <a href="index.php?act=thong_ke" class="hover:text-[#551AA9]">Thống kê</a>
+                    <a href="index.php?act=thong_ke" class="hover:text-[#551AA9]">Statistics</a>
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                 </svg>
                 <h3 class="">
-                    <?php echo isset($_SESSION['dangky']) ? 'Chào: ' . $_SESSION['dangky'] : 'ĐĂNG NHẬP' ?>
+                    <?php echo isset($_SESSION['register']) ? 'Chào: ' . $_SESSION['register'] : 'ĐĂNG NHẬP' ?>
                 </h3>
                 <button id="bt1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" fill="red"

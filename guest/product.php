@@ -2,7 +2,7 @@
 require_once "pdo.php";
 
 // Thêm hàng hóa
-function them_san_pham($product_name, $product_price, $product_price_sale, $description, $image, $image2, $image3, $origin, $id_categories)
+function Insert_Product($product_name, $product_price, $product_price_sale, $description, $image, $image2, $image3, $origin, $id_categories)
 {
     
     $sql = "INSERT INTO `product`(`product_name`, `product_price`, `product_price_sale`, `description`, `image`, `image2`, `image3`, `origin`, `id_categories`) VALUES ('$product_name','$product_price','$product_price_sale','$description','$image','$image2','$image3','$origin','$id_categories')";
@@ -26,38 +26,38 @@ function showspdetail($id)
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     return $stmt->fetch();
 }
-function xoa_san_pham($id)
+function Delete_product($id)
 {
     $sql = "DELETE FROM product WHERE id = $id";
     pdo_execute($sql);
 }
 
-function loadall_product_trangchu()
+function Load_All_Product_Home()
 {
     $sql = "SELECT * FROM `product` ORDER BY view DESC LIMIT 0,6";
-    $list_product = pdo_query($sql);
-    return $list_product;
+    $ListPproduct = pdo_query($sql);
+    return $ListPproduct;
 }
-function loadall_ALL_product()
+function Load_All_Product()
 {
     $sql = "SELECT * FROM `product`";
-    $list_product = pdo_query($sql);
-    return $list_product;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
-function lay_tat_ca_san_pham_admin()
+function Get_All_Product_Admin()
 {
     $sql = "SELECT * FROM product ORDER BY id DESC";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
-function lay_tat_ca_san_pham_guest()
+function Get_All_Product_Guest()
 {
     $sql = "SELECT * FROM product ORDER BY id DESC";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
 // Truy vấn tất cả hàng hóa
-function lay_tat_ca_san_pham($kw = "", $iddm)
+function Get_All_Product($kw = "", $id_categories)
 {
     // $sql = "SELECT * FROM product ORDER BY id DESC";
     // $ds_san_pham = pdo_query($sql);
@@ -66,15 +66,15 @@ function lay_tat_ca_san_pham($kw = "", $iddm)
     if ($kw != "") {
         $sql .= " and product_name like '%" . $kw . "%'";
     }
-    if ($iddm > 0) {
-        $sql .= " and id_categories = '" . $iddm . "'";
+    if ($id_categories > 0) {
+        $sql .= " and id_categories = '" . $id_categories . "'";
     }
     $sql .= "limit 0,9";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
 
-function lay_san_pham_theo_trang($order, $limit)
+function Get_Product_By_Page($order, $limit)
 {
     if (!isset($_GET['page'])) {
         $_SESSION['page'] = 1;
@@ -100,53 +100,53 @@ function lay_san_pham_theo_trang($order, $limit)
     return pdo_query($sql);
 }
 // Truy vấn tất cả hàng hóa theo sắp xếp theo số lượt xem giới hạn là 5 hàng hóa bắt đầu từ vị trí index = 0(đầu tiên)
-function lay_san_pham_noi_bat()
+function Get_Product_Hilight()
 {
     $sql = "SELECT * FROM product  ORDER BY view DESC LIMIT 0,5";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
-function lay_san_pham_goi_y()
+function Get_Product_Suggest()
 {
     $sql = "SELECT * FROM product  ORDER BY view DESC LIMIT 0,4";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
 // Truy vấn tất cả hàng hóa có thuộc tính đặc biệt là 1 sắp xếp theo mã hàng hóa giảm dần giới hạn là 5 hàng hóa bắt đầu từ vị trí index = 0(đầu tiên)
-function lay_san_pham_dac_biet()
+function Get_Product_Special()
 {
     $sql = "SELECT * FROM product WHERE view = (SELECT MAX(view) FROM product); ORDER BY id DESC LIMIT 0,8";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
 
 // Truy vấn tất cả hàng hóa sắp xếp theo mã hàng hóa giảm dần
-function lay_san_pham_moi()
+function Get_Product_New()
 {
     $sql = "SELECT * FROM product WHERE 1 ORDER BY id DESC";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
 
 // Truy vấn một hàng hóa theo mã hàng hóa
-function lay_san_pham_theo_ma($id)
+function Get_Product_By_Code($id)
 {
     $sql = "SELECT * FROM product WHERE id = $id";
-    $san_pham = pdo_query_one($sql);
-    return $san_pham;
+    $Product = pdo_query_one($sql);
+    return $Product;
 }
 
 
 // Truy vấn tất cả hàng hóa theo mã loại(có cùng mã loại) và phải khác mã hàng hóa sắp xếp theo mã hàng hóa giảm giá giới hạn là 3 hàng hóa bắt đầu từ vị trí index = 0(đầu tiên)
-function lay_san_pham_lien_quan($id, $id_categories)
+function Get_Related_Products($id, $id_categories)
 {
     $sql = "SELECT * FROM product WHERE id_categories = $id_categories AND id <> $id ORDER BY id DESC LIMIT 0,3";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
 
 // Truy vấn tất cả hàng hóa theo loại hàng
-function lay_san_pham_theo_dm($id_categories)
+function Get_Product_By_Category($id_categories)
 {
     $sql = "SELECT * FROM product WHERE 1";
     // Nếu tham số mã loại truyền vào lớn hơn 0
@@ -157,22 +157,22 @@ function lay_san_pham_theo_dm($id_categories)
     }
     // Default nối chuỗi sắp xếp theo mã hàng hóa giảm dần
     $sql .= " ORDER BY id DESC";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
 
 // Truy vấn hàng hóa theo từ khóa
-function lay_san_pham_theo_kw($kw)
+function Get_Product_By_kw($kw)
 {
     // Truy vấn hàng hóa theo tên hàng hóa so sánh với từ khóa
     // Sử dụng câu lệnh LIKE để so sánh tham số $kw truyền vào với tên hàng hóa
     $sql = "SELECT * FROM hang_hoa WHERE ten_hang_hoa LIKE '%" . $kw . "%'";
-    $ds_san_pham = pdo_query($sql);
-    return $ds_san_pham;
+    $ListProduct = pdo_query($sql);
+    return $ListProduct;
 }
 
 // Cập nhật hàng hóa theo mã hàng hóa
-function cap_nhat_san_pham($id, $product_name, $product_price, $product_price_sale, $description, $origin, $image2, $id_categories)
+function Update_Product($id, $product_name, $product_price, $product_price_sale, $description, $origin, $image2, $id_categories)
 {
     // Nếu tham số hình khác rỗng(ở đây là người dùng có đăng tải hình ảnh lên)
     if ($image2 != "") {

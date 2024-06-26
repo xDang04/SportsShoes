@@ -4,12 +4,12 @@
         <div class="col-span-2">
             <div class="flex items-center">
                 <img srcset="../upload/logo.png 2x" alt="" class="w-[80px] mx-4">
-                <h2 class="text-3xl ">Giày thể thao Sporty
+                <h2 class="text-3xl ">Sporty Sports Shoes
                 </h2>
             </div>
-            <p class="mx-8 hover:underline my-6 text-[14px]">Những gì chúng tôi mang đến, đó là sự hài lòng và những
-                trải nghiệm mua sắm tốt nhất tới khách hàng. Hãy đến với chúng tôi để có ngay những trải nghiệm mà chỉ
-                có ở Giày thể thao Sporty
+            <p class="mx-8 hover:underline my-6 text-[14px]">What we bring is satisfaction and the best shopping 
+                experiences to our customers. 
+                Come with us to get an instant experience that is only available in Sports Shoes Sporty
                 . !</p>
             <div class="mx-8 my-4">
                 <input type="text" class="border-2 py-2 px-14 rounded-lg" required placeholder="Your email">
@@ -17,27 +17,27 @@
             </div>
         </div>
         <div class="col-span-1 mx-10">
-            <h3 class="font-bold my-6">Nền tảng</h3>
-            <li class="list-none my-2 hover:underline"><a href="">Thông tin về các loại giày</a></li>
-            <li class="list-none my-2 hover:underline"><a href="">Giới thiệu</a></li>
-            <li class="list-none my-2 hover:underline"><a href="">Liên hệ</a></li>
-            <li class="list-none my-2 hover:underline"><a href="">Tin tức </a></li>
-        </div>
-        <div class="col-span-1">
-            <h3 class="font-bold my-6">Hỗ Trợ</h3>
-            <li class="list-none my-2 hover:underline"><a href="">Chính sách đổi trả</a></li>
-            <li class="list-none my-2 hover:underline"><a href="">Câu hỏi thường gặp</a></li>
-            <li class="list-none my-2 hover:underline"><a href="">Làm thế nào để thanh toán</a></li>
-            <li class="list-none my-2 hover:underline"><a href="">Hướng dẫn mua hàng Online</a></li>
-        </div>
-        <div class="col-span-1">
-            <h3 class="font-bold my-6">Liên hệ</h3>
-            <li class="list-none my-2 hover:underline"><a href="">(+98) 571-284</a></li>
-            <li class="list-none my-2 hover:underline"><a href="">Hà Nội</a></li>
-            <li class="list-none my-2 hover:underline"><a href="">Tòa nhà FPT Polytechnic</a></li>
-            <li class="list-none my-2 hover:underline"><a href=""> P. Trịnh Văn Bô, Xuân Phương, Nam Từ Liêm, Hà
-                    Nội</a></li>
-        </div>
+                <h3 class="font-bold my-6">Platform</h3>
+                <li class="list-none my-2 hover:underline"><a href="">Overview</a></li>
+                <li class="list-none my-2 hover:underline"><a href="">Features</a></li>
+                <li class="list-none my-2 hover:underline"><a href="">About</a></li>
+                <li class="list-none my-2 hover:underline"><a href="">Pricing</a></li>
+            </div>
+            <div class="col-span-1">
+                <h3 class="font-bold my-6">Help</h3>
+                <li class="list-none my-2 hover:underline"><a href="">How does it work ?</a></li>
+                <li class="list-none my-2 hover:underline"><a href="">Where to ask questions ?</a></li>
+                <li class="list-none my-2 hover:underline"><a href="">How to pay</a></li>
+                <li class="list-none my-2 hover:underline"><a href="">What is needed for this ?</a></li>
+            </div>
+            <div class="col-span-1">
+                <h3 class="font-bold my-6">Contact</h3>
+                <li class="list-none my-2 hover:underline"><a href="">(+98) 571-284</a></li>
+                <li class="list-none my-2 hover:underline"><a href="">Hà Nội</a></li>
+                <li class="list-none my-2 hover:underline"><a href="">Tòa nhà FPT Polytechnic</a></li>
+                <li class="list-none my-2 hover:underline"><a href=""> P. Trịnh Văn Bô, Xuân Phương, Nam Từ Liêm, Hà
+                        Nội</a></li>
+            </div>
     </div>
     <hr class="mx-20 my-10">
     <div class="mx-20 my-10 justify-between flex">

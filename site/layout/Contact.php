@@ -13,34 +13,34 @@
             </div>
             <div class="">
                 <div class="contact-info">
-                    <h1 class="contact-info-title text-3xl my-10">Liên hệ</h1>
+                    <h1 class="contact-info-title text-3xl my-10">Contact</h1>
                     <button id="btad"
                         class="flex items-center my-10 bg-[#F8FAFC] shadow-cyan-500 shadow-lg px-8 py-3 rounded-lg ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-geo-alt-fill mx-4" viewBox="0 0 16 16">
                             <path
                                 d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                        </svg> Giày thể thao Sporty</button>
+                        </svg> Sporty Sports Shoes</button>
                     <div class="contact-info-list space-y-4">
                         <div class="contact-info-item">
-                            <span class="contact-info-title-small">Địa chỉ chúng tôi</span><br>
+                            <span class="contact-info-title-small">Our address</span><br>
                             <span class="font-bold">Tòa nhà FPT Polytechnic, P. Trịnh Văn Bô, Xuân Phương, Nam Từ Liêm,
                                 Hà Nội</span>
                         </div>
 
                         <div class="contact-info-item">
-                            <span class="contact-info-title-small">Email chúng tôi</span><br>
+                            <span class="contact-info-title-small">Email us</span><br>
                             <span class="font-bold">Sportyfpoly@gmail.com</span>
                         </div>
 
                         <div class="contact-info-item">
-                            <span class="contact-info-title-small">Điện thoại</span><br>
+                            <span class="contact-info-title-small">Phone</span><br>
                             <span class="font-bold">0967.365.963 - 0396.172.759.</span>
                         </div>
 
                         <div class="contact-info-item">
-                            <span class="contact-info-title-small">Thời gian làm việc</span><br>
-                            <span class="font-bold">Thứ 2 đến Thứ CN từ 9h đến 21h</span>
+                            <span class="contact-info-title-small">Working hours</span><br>
+                            <span class="font-bold">Monday to Thursday from 9 to 9 p.m.</span>
                         </div>
                     </div>
                 </div>

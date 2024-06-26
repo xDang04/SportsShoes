@@ -1,7 +1,7 @@
 <img src="../upload/ip15.jpg" alt="" class=" max-w-screen-2xl rounded-lg mx-auto">
 <div class="max-w-6xl mx-auto grid grid-cols-4 gap-8 mt-24 ">
     <div class="col-span-1">
-        <h2 style="font-family: 'Courier New', Courier, monospace" ; class="my-4 font-black text-xl">Danh mục sản phẩm
+        <h2 style="font-family: 'Courier New', Courier, monospace" ; class="my-4 font-black text-xl">Product Catalog
         </h2>
         <div class="space-y-4">
             <!-- <label for="">Quần áo</label><select name="" id="" class="">
@@ -13,12 +13,12 @@
         -->
             <ul>
                 <?php
-                foreach ($dsdm as $dm) {
-                    extract($dm);
-                    $linkdm = "index.php?act=san_pham&iddm=" . $id;
+                foreach ($ListCategory as $ListCate) {
+                    extract($ListCate);
+                    $linkCategory = "index.php?act=san_pham&iddm=" . $id;
                     echo '
                         <li class="my-1">
-                        <a href="' . $linkdm . '">' . $categories_name . '</a>
+                        <a href="' . $linkCategory . '">' . $categories_name . '</a>
                         </li>
                     ';
                 }
@@ -28,13 +28,12 @@
 
 
         <div class="">
-            <h2 style="font-family: 'Courier New', Courier, monospace" ; class="my-4 font-black text-xl">Sản phẩm nổi
-                bật
+            <h2 style="font-family: 'Courier New', Courier, monospace" ; class="my-4 font-black text-xl">Outstanding Products
             </h2>
 
             <?php
-            foreach ($sptop10 as $dssp) {
-                extract($dssp);
+            foreach ($Top10Product as $ListPro) {
+                extract($ListPro);
                 $linksp = "index.php?act=productdetail&id=" . $id;
                 $image2 = $img_path . $image2;
                 echo '
@@ -51,16 +50,16 @@
             }
             $myProduct=strtolower($_POST['kw']);
             $count=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM product WHERE LOWER(product_name) like '%$myProduct%'"))['count(*)'];
-            $san_pham=$count;
+            $product=$count;
             ?>
         </div>
     </div>
     <div class="my-4 col-span-3 ">
         <div class="flex justify-between mb-10">
-            <span class="text-gray-600 ">Đang hiển thị <?= $count ?> kết quả</span>
+            <span class="text-gray-600 ">Showing<?= $count ?>Result</span>
             <div class="text-center">
                 <select name="" id="" class="">
-                    <option value="" class="text-gray-600 ">Bộ lọc</option>
+                    <option value="" class="text-gray-600 ">Filter</option>
                 </select>
             </div>
         </div>

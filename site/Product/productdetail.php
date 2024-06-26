@@ -1,6 +1,6 @@
 <?php
 if (!is_array($pro)) {
-    echo 'Sản Phẩm Không Tồn Tại';
+    echo 'Product does not exist';
 } else {
 
     $id = $pro['id'];
@@ -50,7 +50,7 @@ if (!is_array($pro)) {
             </div>
             <form action="index.php?act=addtocart" method="post">
                 <p class="text-[red] text-[16px] my-4" for="">
-                    <?php echo isset($_SESSION['thongbao']) ? $_SESSION['thongbao'] : " " ?>
+                    <?php echo isset($_SESSION['message']) ? $_SESSION['message'] : " " ?>
                 </p>
                 <div class="color flex space-x-6 items-center mt-6">
                     <h3 class="">Color: </h3>
@@ -211,13 +211,13 @@ if (!is_array($pro)) {
     <HR class="my-20">
     </HR>
     <?php
-    include "binh_luan.php";
+    include "Comment.php";
     ?>
     <h3 class="text-center">SUGGESTIONS</h3>
     <div class="grid grid-cols-4 gap-10 mx-auto">
 
         <?php
-        foreach ($sugget as $sg) {
+        foreach ($Sugget as $sg) {
             extract($sg);
             $linksp = "index.php?act=productdetail&id=" . $id;
             $image2 = $img_path . $image2;
